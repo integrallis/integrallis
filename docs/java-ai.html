@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#F5F5F3">
+    <meta name="description" content="The Integrallis Java AI stack: embedded vector search, in-process language model inference, qualified model artifacts, and measurable code quality.">
+    <link rel="canonical" href="https://integrallis.com/java-ai.html">
+    <meta property="og:site_name" content="Integrallis">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://integrallis.com/java-ai.html">
+    <meta property="og:title" content="Java AI — Integrallis">
+    <meta property="og:description" content="A practical in-process AI stack for the JVM: vectors, models, model artifacts, and agentic memory. Apache 2.0.">
+    <meta property="og:image" content="https://integrallis.com/assets/images/og-integrallis.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Java AI — Integrallis">
+    <meta name="twitter:description" content="A practical in-process AI stack for the JVM: vectors, models, model artifacts, and agentic memory. Apache 2.0.">
+    <meta name="twitter:image" content="https://integrallis.com/assets/images/og-integrallis.jpg">
+    <!-- gsc:start -->
+    <meta name="google-site-verification" content="PY7mJ3v08Vy4ePp9umYSkI69zbLLnTM1_BJsvxKDbd4">
+    <!-- gsc:end -->
+    <title>Java AI — Integrallis</title>
+    <link rel="preload" href="assets/fonts/ArchivoVF-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/MonaSansVF.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/MonaspaceKryptonVF.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/styles.css"><link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><div class="site-shell header-inner">
+        <a class="brand" href="index.html" aria-label="Integrallis home"><img src="assets/images/logo-full-dark.png" alt="Integrallis" width="1987" height="356"></a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-button><span></span><span></span><span class="sr-only">Open navigation</span></button>
+        <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-menu><a href="research.html">Research</a><a href="java-ai.html" aria-current="page">Java AI</a><a href="products.html">Products</a><a href="writing.html">Writing</a><a class="nav-action" href="mailto:info@integrallis.com">Contact <span>↗</span></a></nav>
+    </div></header>
+
+    <svg class="icon-defs" aria-hidden="true" focusable="false" width="0" height="0">
+        <defs>
+            <symbol id="i-java" viewBox="0 0 24 24"><path d="M5.5 11.5h11v4.5a3.5 3.5 0 0 1-3.5 3.5h-4a3.5 3.5 0 0 1-3.5-3.5z"/><path d="M16.5 12.5h1.8a2.3 2.3 0 0 1 0 4.6h-1.8"/><path d="M10.2 3.6c-1.4 1.4 1.4 2.4 0 3.8"/><path d="M13.9 4.9c-1 1 1 1.6 0 2.6"/></symbol>
+            <symbol id="i-kotlin" viewBox="0 0 24 24"><rect x="4.5" y="4.5" width="15" height="15"/><path d="M19.5 4.5 4.5 19.5"/><path d="M12 4.5 4.5 12"/></symbol>
+            <symbol id="i-python" viewBox="0 0 24 24"><path d="M4.6 20.6h8a3.75 3.75 0 0 0 0-7.5H8.4a3.75 3.75 0 0 1 0-7.5h5.5"/><ellipse cx="16.1" cy="5.6" rx="2.25" ry="1.95"/><circle cx="16.9" cy="4.9" r=".6" fill="currentColor" stroke="none"/><path d="M18.35 5.6h2.3m0 0-1.05-.85m1.05.85-1.05.85"/></symbol>
+            <symbol id="i-rust" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.8"/><circle cx="12" cy="12" r="3"/><path d="M12 2.6v2.1M12 19.3v2.1M2.6 12h2.1M19.3 12h2.1M5.4 5.4l1.5 1.5M17.1 17.1l1.5 1.5M18.6 5.4l-1.5 1.5M6.9 17.1l-1.5 1.5"/></symbol>
+        </defs>
+    </svg>
+    <main id="main">
+        <section class="page-hero"><div class="site-shell page-hero-grid">
+            <div><p class="eyebrow">Open source / Java 25</p><h1>AI belongs <mark>inside</mark> the JVM.</h1></div>
+            <div><p class="page-hero-summary">A practical in-process stack for retrieval and inference. No Python sidecar, no separate vector database, and no mystery between the application and its model.</p><div class="page-index"><span>4 core foundations</span><span>Apache 2.0</span><span>Java 25</span></div></div>
+        </div></section>
+
+        <section class="page-section dark-section"><div class="site-shell section-grid">
+            <div class="section-label"><span>01</span>Core stack</div>
+            <div><h2 class="content-heading">Search, run, distribute, remember.</h2><p class="lead">Four projects that compose into one locally owned AI runtime while remaining useful on their own. Vectors carries the retrieval layer, Models runs inference on top of it, ModelJARs makes weights a normal build dependency, and Memory turns the pair into something an agent can keep.</p>
+                <div class="stack-diagram">
+                    <a class="stack-row" href="https://github.com/integrallis/vectors" target="_blank" rel="noopener"><span class="stack-number">01</span><h3>Vectors</h3><p>Embedded similarity search with durable local state, metadata filtering, ANN indexes, and framework adapters — taking full advantage of the Java 25 Vector API.</p><span class="stack-arrow">↗</span></a>
+                    <a class="stack-row" href="https://github.com/integrallis/models" target="_blank" rel="noopener"><span class="stack-number">02</span><h3>Models</h3><p>In-process small-language-model inference for Java 25, with pure Java, native FFM, and Apple backends. Rides on Vectors.</p><span class="stack-arrow">↗</span></a>
+                    <a class="stack-row" href="https://modeljars.org" target="_blank" rel="noopener"><span class="stack-number">03</span><h3>ModelJARs</h3><p>Qualified, versioned model artifacts resolved through normal JVM dependency coordinates, with provenance and checksums against verified upstream weights.</p><span class="stack-arrow">↗</span></a>
+                    <div class="stack-row"><span class="stack-number">04</span><h3>Memory</h3><p>An open agentic memory layer: working and long-term stores, retrieval orchestration, consolidation, and conflict resolution — framework-neutral at the core, with Spring AI, LangChain4j, and MCP surfaces.</p><span class="stack-arrow">·</span></div>
+                </div>
+                <aside class="runtime-boundary"><strong>Operational boundary</strong><p>Local execution is not universal. Model size, memory, latency, and hardware determine whether an in-process runtime is the right system boundary.</p></aside>
+            </div>
+        </div></section>
+
+        <section class="page-section"><div class="site-shell section-grid">
+            <div class="section-label"><span>02</span>Design position</div>
+            <div><h2 class="content-heading">The application is the platform.</h2><p class="lead">For many workloads, intelligence does not need to live behind another service boundary. Keeping retrieval and inference in process reduces operational surface area and makes the system easier to understand, test, package, and own.</p>
+                <div class="capability-grid">
+                    <article><span>LOCAL / 01</span><h3>In-process inference</h3><p>Load open-weight GGUF models and generate text from Java without Python or a model server.</p></article>
+                    <article><span>LOCAL / 02</span><h3>Embedded retrieval</h3><p>Search persistent vector collections without operating a separate vector-database service.</p></article>
+                    <article><span>LOCAL / 03</span><h3>Durable storage</h3><p>Use generation-based memory-mapped persistence locally or hydrate from S3-compatible object storage.</p></article>
+                    <article><span>LOCAL / 04</span><h3>Measured execution</h3><p>Choose Java, native, or platform backends from recorded capabilities and performance evidence.</p></article>
+                    <article><span>LOCAL / 05</span><h3>Framework adapters</h3><p>Integrate with Spring AI and LangChain4j while retaining ownership of the underlying runtime.</p></article>
+                    <article><span>LOCAL / 06</span><h3>Standard packaging</h3><p>Resolve model identities, versions, provenance, and checksums through familiar build coordinates.</p></article>
+                </div>
+            </div>
+        </div></section>
+
+        <section class="page-section"><div class="site-shell section-grid">
+            <div class="section-label"><span>03</span>Routing &amp; qualification</div>
+            <div><h2 class="content-heading">Knowing which small model to trust, and when.</h2><p class="lead">A stack of small and vertical models is only useful if something can tell them apart. We are building a qualification standard for models — what a model is actually good for, measured rather than asserted — and a channel for publishing and distributing the ones that pass, so a router can choose between local platform intelligence, a custom small model, and a vertical specialist on evidence.</p>
+                <div class="oss-projects">
+                    <article class="oss-project"><div class="project-meta"><span>Corpus · Standard</span><span>Routing</span></div><h3>Model router corpus</h3><p>The reference corpus and qualification criteria behind intelligent routing: how candidate models are scored, compared, and published so a router can select on measured capability instead of reputation.</p><a class="plain-link" href="https://github.com/integrallis/model-router-corpus" target="_blank" rel="noopener">View corpus ↗</a></article>
+                    <article class="oss-project"><div class="project-meta"><span class="lang-tags"><span class="lang"><svg class="lang-icon" aria-hidden="true"><use href="#i-java"></use></svg>Java</span><span class="lang plain">Panama</span></span><span>Performance</span></div><h3>Vectors on the Vector API</h3><p>Pushing Java 25's Vector API as far as it goes, shimming to Rust only where it cannot reach — and reporting back where each shim was needed, so the Panama, FFM, and incubating APIs can be made better.</p><a class="plain-link" href="https://integrallis.github.io/vectors/" target="_blank" rel="noopener">Documentation ↗</a></article>
+                </div>
+            </div>
+        </div></section>
+
+        <section class="page-section dark-section"><div class="site-shell section-grid">
+            <div class="section-label"><span>04</span>Also open source</div>
+            <div><h2 class="content-heading">The rest of what we maintain.</h2><p class="lead">Quality measurement, planning, deterministic replay, and approximate-membership data structures. Each came out of the research, each ships on its own terms, and each is useful on its own.</p>
+                <div class="oss-projects">
+                    <article class="oss-project"><div class="project-meta"><span class="lang-tags"><span class="lang"><svg class="lang-icon" aria-hidden="true"><use href="#i-java"></use></svg>Java</span><span class="lang"><svg class="lang-icon" aria-hidden="true"><use href="#i-kotlin"></use></svg>Kotlin</span><span class="lang"><svg class="lang-icon" aria-hidden="true"><use href="#i-python"></use></svg>Python</span></span><span>Quality</span></div><h3>MFCQI</h3><p>A normalized, evidence-based code-quality score designed to act as a cheap canary in fast or autonomous development loops.</p><div class="action-row"><a class="plain-link" href="https://github.com/integrallis/mfcqi-java" target="_blank" rel="noopener">Java / Kotlin ↗</a><a class="plain-link" href="https://github.com/integrallis/mfcqi-python" target="_blank" rel="noopener">Python ↗</a></div></article>
+                    <article class="oss-project"><div class="project-meta"><span class="lang-tags"><span class="lang"><svg class="lang-icon" aria-hidden="true"><use href="#i-python"></use></svg>Python</span><span class="lang plain">LangGraph</span></span><span>Planning</span></div><h3>LangGOAP</h3><p>Goal-oriented planning for agents using deterministic A* search, optional constraint optimization, and automatic replanning on failure.</p><a class="plain-link" href="https://github.com/LangGOAP/LangGOAP" target="_blank" rel="noopener">View project ↗</a></article>
+                    <article class="oss-project"><div class="project-meta"><span class="lang-tags"><span class="lang"><svg class="lang-icon" aria-hidden="true"><use href="#i-rust"></use></svg>Rust</span></span><span>Data structures</span></div><h3>pleat</h3><p>Ribbon filters with pleated construction: a one-pass, cache-window reordering that builds space-optimal filters at close to Bloom-filter speed — roughly twice as fast as building in arrival order at scale. Companion implementation to the Ribbon Catches Bloom paper, with an upstream patch to RocksDB in preparation.</p><a class="plain-link" href="https://github.com/integrallis/pleat" target="_blank" rel="noopener">View project ↗</a></article>
+                    <article class="oss-project"><div class="project-meta"><span>Tooling</span><span>Inference</span></div><h3>LLMTivo</h3><p>Recording and replaying model interactions so an evaluation, a regression test, or a demo can be made hermetic and repeatable rather than re-billed and re-rolled every run.</p><a class="plain-link" href="https://github.com/integrallis/LLMTivo" target="_blank" rel="noopener">View project ↗</a></article>
+                </div>
+            </div>
+        </div></section>
+
+        <section class="contact-strip"><div class="site-shell contact-strip-grid"><div><p class="eyebrow">Build locally</p><h2>Own the runtime. Inspect the stack.</h2></div><a class="button" href="https://github.com/integrallis" target="_blank" rel="noopener">Integrallis on GitHub ↗</a></div></section>
+    </main>
+    <footer class="site-footer"><div class="site-shell footer-grid"><a class="footer-mark" href="index.html"><img src="assets/images/emblem-dark.png" alt="Integrallis home" width="1380" height="1314"></a><p>Integrallis Software, LLC<br>Scottsdale, Arizona</p><div class="footer-links"><a href="https://github.com/integrallis" target="_blank" rel="noopener">GitHub ↗</a><a href="https://medium.com/@bsbodden_68805" target="_blank" rel="noopener">Medium ↗</a><a href="mailto:info@integrallis.com">Email ↗</a></div><p class="copyright">© <span data-year>2026</span> Integrallis</p></div></footer>
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>

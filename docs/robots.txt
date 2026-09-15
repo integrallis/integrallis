@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://integrallis.com/sitemap.xml
+
+# Legacy URL redirects from the pre-2026 site — followed, never indexed.
+Disallow: /2009/
+Disallow: /2010/
+Disallow: /2011/
+Disallow: /2012/
+Disallow: /2013/
+Disallow: /2014/

@@ -1,0 +1,4 @@
+Archivo and IBM Plex Mono are licensed under the SIL Open Font License 1.1.
+Archivo: https://github.com/Omnibus-Type/Archivo
+IBM Plex Mono: https://github.com/IBM/plex
+Latin subsets self-hosted here to remove a third-party render-blocking request.

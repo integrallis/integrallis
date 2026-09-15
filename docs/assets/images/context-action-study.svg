@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="690" viewBox="0 0 760 690" role="img" aria-labelledby="title desc">
+  <title id="title">Context to action study</title>
+  <desc id="desc">A static technical diagram showing a repository reduced from ninety-four thousand tokens to nineteen thousand tokens, passed to an edit site, and then through a quality gate.</desc>
+  <rect width="760" height="690" fill="#EBEBE9"/>
+  <rect x="20.5" y="20.5" width="719" height="649" fill="none" stroke="#70706E"/>
+  <g fill="#1C1C1A" font-family="Mona Sans, Arial, sans-serif">
+    <text x="48" y="64" font-size="12" font-weight="600" letter-spacing="1.8">CONTEXT / ACTION STUDY</text>
+    <text x="676" y="64" font-family="IBM Plex Mono, monospace" font-size="10">01—26</text>
+  </g>
+  <line x1="48" y1="88.5" x2="712" y2="88.5" stroke="#91918F"/>
+
+  <g transform="translate(48 126)">
+    <text x="0" y="0" fill="#70706E" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1.2">01 / REPOSITORY</text>
+    <g transform="translate(0 28)" fill="#F5F5F3" stroke="#70706E">
+      <rect x="0.5" y="0.5" width="178" height="34"/><rect x="0.5" y="43.5" width="178" height="34"/><rect x="0.5" y="86.5" width="178" height="34"/><rect x="0.5" y="129.5" width="178" height="34"/><rect x="0.5" y="172.5" width="178" height="34"/>
+    </g>
+    <g fill="#1C1C1A" font-family="IBM Plex Mono, monospace" font-size="9">
+      <text x="14" y="50">src / module_a</text><text x="14" y="93">src / module_b</text><text x="14" y="136">tests / fixtures</text><text x="14" y="179">docs / context</text><text x="14" y="222">build / tooling</text>
+    </g>
+    <text x="0" y="264" fill="#1C1C1A" font-family="Mona Sans, Arial, sans-serif" font-size="36" font-weight="500">94K</text>
+    <text x="91" y="263" fill="#70706E" font-family="IBM Plex Mono, monospace" font-size="9">TOKENS / WHOLE FILES</text>
+  </g>
+
+  <g stroke="#1C1C1A" fill="none">
+    <line x1="250" y1="265.5" x2="323" y2="265.5"/>
+    <path d="m315 258 8 7.5-8 7.5"/>
+  </g>
+  <circle cx="286" cy="265" r="13" fill="#D4AF37" stroke="#1C1C1A"/>
+
+  <g transform="translate(344 126)">
+    <text x="0" y="0" fill="#70706E" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1.2">02 / COMPRESS</text>
+    <rect x="0.5" y="28.5" width="150" height="206" fill="#262624" stroke="#1C1C1A"/>
+    <g stroke="#91918F"><line x1="18" y1="60.5" x2="132" y2="60.5"/><line x1="18" y1="83.5" x2="98" y2="83.5"/><line x1="18" y1="106.5" x2="119" y2="106.5"/><line x1="18" y1="129.5" x2="75" y2="129.5"/><line x1="18" y1="175.5" x2="132" y2="175.5"/><line x1="18" y1="198.5" x2="96" y2="198.5"/></g>
+    <rect x="18.5" y="145.5" width="113" height="12" fill="#D4AF37" stroke="none"/>
+    <text x="0" y="264" fill="#1C1C1A" font-family="Mona Sans, Arial, sans-serif" font-size="36" font-weight="500">19K</text>
+    <text x="91" y="263" fill="#70706E" font-family="IBM Plex Mono, monospace" font-size="9">TOKENS / SAME RESULT</text>
+  </g>
+
+  <g stroke="#1C1C1A" fill="none">
+    <line x1="516" y1="265.5" x2="575" y2="265.5"/>
+    <path d="m567 258 8 7.5-8 7.5"/>
+  </g>
+
+  <g transform="translate(596 126)">
+    <text x="0" y="0" fill="#70706E" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1.2">03 / ACT</text>
+    <circle cx="58" cy="115" r="57.5" fill="#F5F5F3" stroke="#1C1C1A"/>
+    <circle cx="58" cy="115" r="35.5" fill="#1C1C1A" stroke="#1C1C1A"/>
+    <rect x="51" y="84" width="14" height="62" fill="#D4AF37"/>
+    <rect x="27" y="108" width="62" height="14" fill="#D4AF37"/>
+    <text x="58" y="206" text-anchor="middle" fill="#1C1C1A" font-family="IBM Plex Mono, monospace" font-size="9">EDIT SITE</text>
+  </g>
+
+  <line x1="48" y1="442.5" x2="712" y2="442.5" stroke="#91918F"/>
+  <g transform="translate(48 481)">
+    <text x="0" y="0" fill="#70706E" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1.2">04 / VERIFY</text>
+    <rect x="0.5" y="27.5" width="664" height="104" fill="#F5F5F3" stroke="#1C1C1A"/>
+    <circle cx="48" cy="79" r="15" fill="#2E7D32"/>
+    <path d="m40 79 6 6 11-13" fill="none" stroke="#F5F5F3" stroke-width="2"/>
+    <text x="82" y="70" fill="#1C1C1A" font-family="Mona Sans, Arial, sans-serif" font-size="18" font-weight="600">QUALITY GATE</text>
+    <text x="82" y="92" fill="#70706E" font-family="IBM Plex Mono, monospace" font-size="9">TESTS · STATIC ANALYSIS · MFCQI · HUMAN BOUNDARY</text>
+    <line x1="491" y1="48" x2="491" y2="111" stroke="#91918F"/>
+    <text x="520" y="72" fill="#70706E" font-family="IBM Plex Mono, monospace" font-size="9">STATUS</text>
+    <text x="520" y="94" fill="#1C1C1A" font-family="Mona Sans, Arial, sans-serif" font-size="18" font-weight="600">ACCOUNTABLE</text>
+  </g>
+  <g fill="#70706E" font-family="IBM Plex Mono, monospace" font-size="9">
+    <text x="48" y="636">INTEGRALLIS RESEARCH INSTRUMENT</text><text x="712" y="636" text-anchor="end">STATIC PLATE / NOT TO SCALE</text>
+  </g>
+</svg>

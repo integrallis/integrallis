@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#F5F5F3">
+    <meta name="description" content="The Integrallis research program: applied AI and efficient inference, agentic software engineering, frontier questions in representation and reasoning, and human–agent interfaces.">
+    <link rel="canonical" href="https://integrallis.com/research.html">
+    <meta property="og:site_name" content="Integrallis">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://integrallis.com/research.html">
+    <meta property="og:title" content="Research — Integrallis">
+    <meta property="og:description" content="Six studies across four programs: agentic software engineering, agentic memory, and the data structures underneath both.">
+    <meta property="og:image" content="https://integrallis.com/assets/images/og-integrallis.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Research — Integrallis">
+    <meta name="twitter:description" content="Six studies across four programs: agentic software engineering, agentic memory, and the data structures underneath both.">
+    <meta name="twitter:image" content="https://integrallis.com/assets/images/og-integrallis.jpg">
+    <!-- gsc:start -->
+    <meta name="google-site-verification" content="PY7mJ3v08Vy4ePp9umYSkI69zbLLnTM1_BJsvxKDbd4">
+    <!-- gsc:end -->
+    <title>Research — Integrallis</title>
+    <link rel="preload" href="assets/fonts/ArchivoVF-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/MonaSansVF.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/MonaspaceKryptonVF.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="site-shell header-inner">
+            <a class="brand" href="index.html" aria-label="Integrallis home"><img src="assets/images/logo-full-dark.png" alt="Integrallis" width="1987" height="356"></a>
+            <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-button><span></span><span></span><span class="sr-only">Open navigation</span></button>
+            <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-menu>
+                <a href="research.html" aria-current="page">Research</a>
+                <a href="java-ai.html">Java AI</a>
+                <a href="products.html">Products</a>
+                <a href="writing.html">Writing</a>
+                <a class="nav-action" href="mailto:info@integrallis.com">Contact <span aria-hidden="true">↗</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="site-shell page-hero-grid">
+                <div>
+                    <p class="eyebrow">Research / 2026</p>
+                    <h1>Open questions, held to <mark>evidence.</mark></h1>
+                </div>
+                <div>
+                    <p class="page-hero-summary">Four programs run in parallel: making inference small and cheap enough to own, understanding what actually makes software agents reliable, testing whether representation and reasoning can be separated from scale, and designing interfaces that keep a person in command of all of it.</p>
+                    <div class="page-index">
+                        <a href="#map">01 The arc</a>
+                        <a href="#papers">02 Papers</a>
+                        <a href="#programs">03 Programs</a>
+                        <a href="#loop">04 Method</a>
+                        <a href="#horizon">05 Horizon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section" id="map" aria-labelledby="map-title">
+            <div class="site-shell">
+                <div class="section-grid">
+                    <p class="section-label"><span>01</span>The arc</p>
+                    <div>
+                        <h2 class="content-heading" id="map-title">One question, asked four times.</h2>
+                        <p class="lead">The software-engineering work is not a set of unrelated studies. Each one answers the objection raised by the one before it, and the map below is the route we actually took.</p>
+                    </div>
+                </div>
+                <figure class="research-map">
+                    <div class="map-art" data-figure="research-map"><img src="assets/images/process/research-map.webp" alt="A technical map of the research arc: a track crossing a split block, entering a narrowing funnel, passing beneath a gate, and ending in a return loop, with a surveyor's level sighted along it." width="1584" height="672" loading="lazy" decoding="async"></div>
+                    <figcaption>
+                        <ol class="map-stations">
+                            <li><span>01</span><strong>Gap</strong><p>When an agent writes its own tests, the grader is the thing under test. Measured against held-out oracles, residual false accepts survive every condition.</p></li>
+                            <li><span>02</span><strong>Context</strong><p>If verification cannot be trusted on its own, what does the agent actually need in order to act correctly in the first place? Representation, held against real issue resolution.</p></li>
+                            <li><span>03</span><strong>Test-first</strong><p>Write the failing test before the code and let execution, not the model, decide. The gate moves out of the model's judgement and into the build.</p></li>
+                            <li><span>04</span><strong>Refinement</strong><p>One pass is not enough. What survives repeated correction, what regresses, and what a system should retain between attempts so the next pass starts further along.</p></li>
+                        </ol>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="page-section" id="papers" aria-labelledby="papers-title">
+            <div class="site-shell">
+                <div class="section-grid">
+                    <p class="section-label"><span>02</span>Publications</p>
+                    <div>
+                        <h2 class="content-heading" id="papers-title">Five studies.</h2>
+                        <p class="lead">Agentic software engineering, agentic memory, and the data structures underneath both. Each paper states its own method, its own limits, and the noise floor it had to clear.</p>
+                    </div>
+                </div>
+                <div class="paper-cards">
+                    <article class="paper-card">
+                        <a href="https://arxiv.org/abs/2607.09691" target="_blank" rel="noopener">
+                            <div class="paper-figure" data-figure="p001-context"><img src="assets/images/papers/p001-context.webp" alt="A fanned stack of blank plates tapering down to a single gold plate, held in the jaws of a brass caliper on a tiled plane." width="1376" height="768" loading="lazy" decoding="async"></div>
+                            <div class="paper-body">
+                                <p class="paper-meta"><span>Paper 001</span><span>Agentic SWE</span></p>
+                                <h3>What Context Does a Coding Agent Actually Need to Act?</h3>
+                                <p>Separating finding the work site from acting on it. Localization is held fixed with an oracle, only code representation varies, and context is scored against real issue resolution on SWE-bench Verified.</p>
+                                <p class="paper-foot"><span>arXiv:2607.09691</span><span aria-hidden="true">Read ↗</span></p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="paper-card">
+                        <a href="https://github.com/integrallis/self-grading-gap" target="_blank" rel="noopener">
+                            <div class="paper-figure" data-figure="p002-verification-gap"><img src="assets/images/papers/p002-verification-gap.webp" alt="A bone block pressed against a reference wall with a gold gap still open between them, a brass feeler gauge slipped into the gap." width="1376" height="768" loading="lazy" decoding="async"></div>
+                            <div class="paper-body">
+                                <p class="paper-meta"><span>Paper 002</span><span>Agentic SWE</span></p>
+                                <h3>Who Grades the Grader? The Verification Gap in Self-Testing Code Agents</h3>
+                                <p>An instrumented self-testing pipeline measured against held-out oracles. Frontier test authors and judges leave residual false accepts in every condition measured, and stricter gating removes correct output along with the incorrect.</p>
+                                <p class="paper-foot"><span>Reproducer + paper</span><span aria-hidden="true">Read ↗</span></p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="paper-card">
+                        <div class="paper-inner">
+                            <div class="paper-figure" data-figure="p003-supersession"><img src="assets/images/papers/p003-supersession.webp" alt="A tray of blank filing slips with one slot standing empty: a red slip drawn out in the fork of a brass extractor, a gold slip descending into its place." width="1376" height="768" loading="lazy" decoding="async"></div>
+                            <div class="paper-body">
+                                <p class="paper-meta"><span>Paper 003</span><span>Memory</span></p>
+                                <h3>CANTOR — Admission-Time Supersession for Current-Fact Question Answering</h3>
+                                <p>Conflict resolution in agentic memory. When a stored fact is replaced by a newer one, does the pipeline notice at admission time? Matched-question outcomes across repeated fact-consolidation runs, with a retrieval-transfer diagnostic and semantic conformance cases.</p>
+                                <p class="paper-foot"><span>Empirical study</span><span>Repository private</span></p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="paper-card">
+                        <div class="paper-inner">
+                            <div class="paper-figure" data-figure="p005-convergence"><img src="assets/images/papers/p005-convergence.webp" alt="Three floating panels carrying differently jumbled tiles, each tile dropping on a fine line into one identical evenly spaced row below, beside a stack of brass weights." width="1376" height="768" loading="lazy" decoding="async"></div>
+                            <div class="paper-body">
+                                <p class="paper-meta"><span>Paper 004</span><span>Memory</span></p>
+                                <h3>Agentic Memory Frontier Research and Product Development</h3>
+                                <p>What an agent should remember, and how that knowledge stays correct as it changes: convergence across replicas, supersession of stale facts, and the storage that makes both practical. The findings go straight into the open memory layer and the products built on it.</p>
+                                <p class="paper-foot"><span>Research + product</span><span>Repository private</span></p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="paper-card">
+                        <a href="https://github.com/integrallis/ribbon-catches-bloom" target="_blank" rel="noopener">
+                            <div class="paper-figure" data-figure="p006-ribbon-pleat"><img src="assets/images/papers/p006-ribbon-pleat.webp" alt="A lattice of square cells, loose and full of holes on one side of an upright frame and densely packed on the other, with a satin ribbon drawing tight as it passes through." width="1376" height="768" loading="lazy" decoding="async"></div>
+                            <div class="paper-body">
+                                <p class="paper-meta"><span>Paper 005</span><span>Data structures</span></p>
+                                <h3>Ribbon Catches Bloom: Pleated Construction at Bloom Speed</h3>
+                                <p>Ribbon filters are space-optimal but slow to build. Pleated construction — a one-pass reordering inside a cache window — builds them at close to Bloom-filter speed, roughly twice as fast as building in arrival order at scale. The result is language-neutral; the companion Rust implementation is <b>pleat</b>, with an upstream patch to RocksDB in preparation. Every published number traces to committed benchmark data through a claims ledger.</p>
+                                <p class="paper-foot"><span>Benchmarked</span><span aria-hidden="true">Read ↗</span></p>
+                            </div>
+                        </a>
+                    </article>
+                    </div>
+            </div>
+        </section>
+
+        <section class="page-section dark-section" id="programs" aria-labelledby="programs-title">
+            <div class="site-shell">
+                <div class="section-grid">
+                    <p class="section-label"><span>03</span>Research programs</p>
+                    <div>
+                        <h2 class="content-heading" id="programs-title">What each program is trying to settle.</h2>
+                        <p class="lead">The aim is not to make autonomous systems appear more capable. It is to identify what they actually need, measure what they actually do, and build boundaries that let people trust the useful parts.</p>
+                    </div>
+                </div>
+                <div class="program-list">
+                    <article id="applied">
+                        <p class="program-code">R—01</p>
+                        <h3>Applied AI</h3>
+                        <div>
+                            <p>Can inference be made small, local, and power-conscious enough that ordinary systems own it outright? The work spans efficient execution inside the JVM, small and vertical models, mixture-of-experts optimization, and intelligent routing — including a qualification standard for models and a channel for publishing and distributing them. Vectors, models, and memory are the instruments; they ship as open source.</p>
+                            <p class="program-links"><a href="java-ai.html">The open stack</a><a href="https://github.com/integrallis/model-router-corpus" target="_blank" rel="noopener">Model router corpus ↗</a><span class="program-link-muted">Memory</span></p>
+                        </div>
+                    </article>
+                    <article id="engineering">
+                        <p class="program-code">R—02</p>
+                        <h3>Agentic software engineering</h3>
+                        <div>
+                            <p>What makes a coding agent reliable, and how would we know? Three threads: providing the optimal context for the task, closing the gap between natural-language requirements and formal testable ones, and agentic memory that persists across sessions. Findings feed directly into moobi.dev, where they become a production workflow.</p>
+                            <p class="program-links"><a href="https://arxiv.org/abs/2607.09691" target="_blank" rel="noopener">Context study ↗</a><a href="https://github.com/integrallis/self-grading-gap" target="_blank" rel="noopener">Verification gap ↗</a><a href="products.html">moobi.dev</a></p>
+                        </div>
+                    </article>
+                    <article id="frontier">
+                        <p class="program-code">R—03</p>
+                        <h3>Frontier questions</h3>
+                        <div>
+                            <p>Four open questions we think are worth the risk of being wrong about. Can an embedding's meaning be universal — an atom of knowledge that survives being encoded by a different model, classified, and shared? Can reasoning be separated from parametric knowledge far enough that a condensed core, given the right tools, approaches frontier capability? Can mixture-of-experts modules be shared between small models, with the KV cache doing part of the work? And can a common conceptual latent space be shown to emerge across independently trained models? Several interchange formats have been proposed for that middle layer; we intend to test them rather than assume them.</p>
+                        </div>
+                    </article>
+                    <article id="interfaces">
+                        <p class="program-code">R—04</p>
+                        <h3>Human–agent interfaces</h3>
+                        <div>
+                            <p>Agents got fast before their interfaces got honest. We are exploring what an operating system for agents looks like when the canvas morphs to the task rather than the app — naked objects for the agentic era — and what a harness has to do to bring sanity back to fast development: slow the machine down, speed the human up, and stop at the right moment to show the progression rather than asking for trust. A parallel experiment builds learning paths from what a person saves, rendered as a subway map whose stations become scheduled audio.</p>
+                            <p class="program-links"><a href="products.html">OS/A and PodMrk</a></p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section" id="loop" aria-labelledby="loop-title">
+            <div class="site-shell">
+                <div class="section-grid">
+                    <p class="section-label"><span>04</span>Method</p>
+                    <div>
+                        <h2 class="content-heading" id="loop-title">Research should end in working software.</h2>
+                        <p class="lead">Findings move through a deliberate loop. Experiments clarify the constraint, open tools make the mechanism inspectable, and products make the validated workflow accessible. Anything that does not survive the measurement stays in the lab.</p>
+                    </div>
+                </div>
+                <div class="research-loop light-loop">
+                    <div><span>01</span><strong>Observe</strong><small>Isolate a consequential unknown.</small></div>
+                    <div><span>02</span><strong>Measure</strong><small>Run controlled, reproducible trials.</small></div>
+                    <div><span>03</span><strong>Release</strong><small>Open the useful instrument or foundation.</small></div>
+                    <div><span>04</span><strong>Productize</strong><small>Turn evidence into a repeatable workflow.</small></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section dark-section" id="horizon" aria-labelledby="horizon-title">
+            <div class="site-shell section-grid">
+                <p class="section-label"><span>05</span>Longer horizon</p>
+                <div>
+                    <h2 class="content-heading" id="horizon-title">Toward biological intelligence.</h2>
+                    <p class="lead">The lab's remit already includes non-LLM artificial intelligence and general computer science — database architecture, storage systems, indexing, retrieval, data structures, and the less glamorous mechanisms that make intelligent software dependable.</p>
+                    <p class="lead horizon-note">Further out, the intent is explicit: doctoral work in neuroscience, and a research organization built with computer scientists and neuroscientists together, in the spirit of what Numenta set out to do. The conviction behind every program on this page is that the current architecture is not the last one, and that the next one will be argued for from how brains actually work.</p>
+                    <p class="horizon-action"><a class="plain-link" href="mailto:info@integrallis.com">Discuss research collaboration ↗</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-strip">
+            <div class="site-shell contact-strip-grid">
+                <div>
+                    <p class="eyebrow">Open channel</p>
+                    <h2>Have a hard problem worth proving?</h2>
+                </div>
+                <a class="button" href="mailto:info@integrallis.com">info@integrallis.com <span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-shell footer-grid">
+            <a class="footer-mark" href="index.html"><img src="assets/images/emblem-dark.png" alt="Integrallis home" width="1380" height="1314"></a>
+            <p>Integrallis Software, LLC<br>Scottsdale, Arizona</p>
+            <div class="footer-links"><a href="https://github.com/integrallis" target="_blank" rel="noopener">GitHub ↗</a><a href="https://medium.com/@bsbodden_68805" target="_blank" rel="noopener">Medium ↗</a><a href="mailto:info@integrallis.com">Email ↗</a></div>
+            <p class="copyright">© <span data-year>2026</span> Integrallis</p>
+        </div>
+    </footer>
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>

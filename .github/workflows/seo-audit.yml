@@ -1,0 +1,99 @@
+name: SEO audit
+
+# Dogfooding RankCLI on our own site.
+#   pull_request -> audit a locally served copy of docs/ so regressions surface before merge
+#   schedule / manual -> audit the live site, which is the only place HTTPS, caching
+#                        and response headers can actually be judged
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+  schedule:
+    - cron: "23 14 * * 1"
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL to audit (defaults to the live site)"
+        required: false
+        default: "https://integrallis.com/"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  preview:
+    name: Audit built pages
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Serve docs/
+        run: |
+          python3 -m http.server 8000 --directory docs &
+          for i in $(seq 1 20); do
+            curl -sf -o /dev/null http://localhost:8000/ && break
+            sleep 0.5
+          done
+      - name: Audit
+        run: |
+          npx -y @rankcli/cli@latest audit \
+            -u http://localhost:8000/ \
+            --max-pages 10 \
+            --check-links \
+            -o json > audit.json || true
+          npx -y @rankcli/cli@latest audit \
+            -u http://localhost:8000/ \
+            --max-pages 10 \
+            --check-links | tee audit.txt
+      - name: Summarise
+        run: |
+          {
+            echo "## SEO audit — built pages"
+            echo
+            echo "Served from \`docs/\` over plain HTTP, so HTTPS, compression, cache-header"
+            echo "and response-header findings are CI artifacts and can be ignored here."
+            echo
+            echo '```'
+            sed -n '/SEO AUDIT REPORT/,/^$/p' audit.txt | head -40
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: seo-audit-preview
+          path: |
+            audit.json
+            audit.txt
+
+  production:
+    name: Audit live site
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Audit
+        env:
+          TARGET: ${{ github.event.inputs.url || 'https://integrallis.com/' }}
+        run: |
+          npx -y @rankcli/cli@latest audit \
+            -u "$TARGET" \
+            --max-pages 10 \
+            --check-links | tee audit.txt
+      - name: Summarise
+        run: |
+          {
+            echo "## SEO audit — live site"
+            echo
+            echo '```'
+            sed -n '/SEO AUDIT REPORT/,/^$/p' audit.txt | head -40
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: seo-audit-production
+          path: audit.txt

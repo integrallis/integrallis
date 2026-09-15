@@ -1,0 +1,18 @@
+[
+  {
+    "title": "In-JVM RAG That Survives Restarts",
+    "url": "https://medium.com/@bsbodden_68805/in-jvm-rag-that-survives-restarts-4de4e15a4aa1",
+    "published": "2026-07-31",
+    "dateLabel": "Jul 31, 2026",
+    "category": "Java AI",
+    "excerpt": "Move from ephemeral search to durable local disk and object storage with Java Vectors—without adding a separate database."
+  },
+  {
+    "title": "The importance of code quality gates in Agentic Code Generation",
+    "url": "https://medium.com/@bsbodden_68805/the-importance-of-code-quality-gates-in-agentic-code-generation-9d77d32a3ee7",
+    "published": "2026-07-01",
+    "dateLabel": "Jul 1, 2026",
+    "category": "Agentic coding",
+    "excerpt": "Use a cheap, repeatable quality signal to keep autonomous code generation from quietly compounding technical debt."
+  }
+]

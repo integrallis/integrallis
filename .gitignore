@@ -1,6 +1,15 @@
-dotcom
-integrallis_website.md
-references
+# macOS / Python cruft
 .DS_Store
-.claude/
-CLAUDE.md
+**/.DS_Store
+__pycache__/
+*.pyc
+
+# Internal, NOT for a public repo.
+#   plan.md    — company strategy: unannounced products, the rebrand, long-horizon plans
+#   LAUNCH.md  — launch checklist; names embargoed products
+#   design/    — working files, ~15 MB of render masters, and unreleased page
+#                sections awaiting their launch dates
+# Keep these locally, or move them to a private repo.
+plan.md
+LAUNCH.md
+design/
