@@ -1,11 +1,19 @@
 [
   {
+    "title": "A VCR for your Java AI Tests",
+    "url": "https://medium.com/@bsbodden_68805/a-vcr-for-your-java-ai-tests-b2d6af12dd4b",
+    "published": "2026-08-24",
+    "dateLabel": "Aug 24, 2026",
+    "category": "Java AI",
+    "excerpt": "Don’t get me wrong, unit tests are important, but integration tests give me much greater peace of mind. Add an LLM and those tests become slow, costly, tied to credentials, and unpredictable. Mocking the model…"
+  },
+  {
     "title": "In-JVM RAG That Survives Restarts",
     "url": "https://medium.com/@bsbodden_68805/in-jvm-rag-that-survives-restarts-4de4e15a4aa1",
     "published": "2026-07-31",
     "dateLabel": "Jul 31, 2026",
     "category": "Java AI",
-    "excerpt": "Move from ephemeral search to durable local disk and object storage with Java Vectors—without adding a separate database."
+    "excerpt": "Craig Walls published a recipe using the Vectors library that takes a working Spring AI RAG application, substitutes Qdrant for the Vectors Java Library and does away with the complexity of managing an external…"
   },
   {
     "title": "The importance of code quality gates in Agentic Code Generation",
@@ -13,6 +21,6 @@
     "published": "2026-07-01",
     "dateLabel": "Jul 1, 2026",
     "category": "Agentic coding",
-    "excerpt": "Use a cheap, repeatable quality signal to keep autonomous code generation from quietly compounding technical debt."
+    "excerpt": "Last year I was working on the idea of an agentic code generator like Claude Code that would be just as critical as I am about some engineering practices. Practices like TDD (Test-Driven Development) or…"
   }
 ]
