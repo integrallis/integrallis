@@ -1,0 +1,22 @@
+# LLM Text File
+
+# Site Name
+name: Integrallis
+
+# Description
+description: Integrallis is an independent research and development lab. We build AI infrastructure that runs on hardware you control — in your process, on your storage, on your device — and we publish the measurements that say when that is enough, and when it is not.
+
+# Key Pages
+links:
+  - url: https://integrallis.com/
+    text: Home
+  - url: https://integrallis.com/research.html
+    text: Research
+  - url: https://integrallis.com/java-ai.html
+    text: Java AI
+  - url: https://integrallis.com/products.html
+    text: Products
+  - url: https://integrallis.com/writing.html
+    text: Writing
+  - url: https://github.com/integrallis
+    text: GitHub
