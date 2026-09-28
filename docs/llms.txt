@@ -1,0 +1,22 @@
+# LLM Context File for Integrallis
+
+## Site Name
+Integrallis
+
+## Description
+Integrallis is an independent research and development lab focused on AI infrastructure that runs on hardware you control. We publish research and develop products that demonstrate when local execution of AI is sufficient. Our work emphasizes ownership, evidence-based development, and clearly defined boundaries for AI execution.
+
+## Key Pages
+*   **Homepage:** [https://integrallis.com/](https://integrallis.com/)
+*   **Research:** [https://integrallis.com/research.html](https://integrallis.com/research.html)
+*   **Java AI / Open Foundations:** [https://integrallis.com/java-ai.html](https://integrallis.com/java-ai.html)
+*   **Products:** [https://integrallis.com/products.html](https://integrallis.com/products.html)
+*   **Writing:** [https://integrallis.com/writing.html](https://integrallis.com/writing.html)
+
+## Brand Topics
+*   **Ownership:** AI infrastructure running on user-controlled hardware.
+*   **Evidence:** Measurable capability, scored code, deterministic builds.
+*   **Boundary:** Defining limits of local AI execution.
+*   **Independent R&D:** Long-standing focus since 2002.
+*   **Products:** Moobi (test-first app builder for KMP).
+*   **Open Source:** Apache 2.0 licensed projects on GitHub.
