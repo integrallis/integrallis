@@ -6,8 +6,6 @@ name: SEO audit
 #                        and response headers can actually be judged
 on:
   pull_request:
-    paths:
-      - "docs/**"
   schedule:
     - cron: "23 14 * * 1"
   workflow_dispatch:
@@ -22,8 +20,17 @@ permissions:
   pull-requests: write
 
 jobs:
+  validate:
+    name: Validate site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check markup, schema, dates, hosts and links
+        run: python3 scripts/check_site.py
+
   preview:
     name: Audit built pages
+    needs: validate
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
