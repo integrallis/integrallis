@@ -1,5 +1,13 @@
 [
   {
+    "title": "Deep Dive into the Vectors Library",
+    "url": "https://medium.com/@bsbodden_68805/deep-dive-into-the-vectors-library-2f774d816d58",
+    "published": "2026-10-05",
+    "dateLabel": "Oct 5, 2026",
+    "category": "Java AI",
+    "excerpt": "Is the Vectors library a Vector Database? It provides persistent, searchable vector collections inside your JVM. The TLDR of it is that you can have vector collections in your JVM. Why would you want to do…"
+  },
+  {
     "title": "A VCR for your Java AI Tests",
     "url": "https://medium.com/@bsbodden_68805/a-vcr-for-your-java-ai-tests-b2d6af12dd4b",
     "published": "2026-08-24",

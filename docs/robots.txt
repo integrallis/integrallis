@@ -3,6 +3,9 @@ Allow: /
 
 Sitemap: https://integrallis.com/sitemap.xml
 
+# Plain-language site summary for LLM crawlers.
+# https://integrallis.com/llms.txt
+
 # Legacy URL redirects from the pre-2026 site — followed, never indexed.
 Disallow: /2009/
 Disallow: /2010/

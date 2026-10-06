@@ -90,10 +90,56 @@ def parse_feed(xml_bytes: bytes) -> list[dict[str, str]]:
     return sorted(articles, key=lambda item: datetime.fromisoformat(item["published"]), reverse=True)
 
 
+ARTICLES_PAGE = Path("docs/writing.html")
+GRID_OPEN = '<div class="article-grid" data-articles>'
+GRID_CLOSE = "</div>"
+
+
+def card_markup(article: dict[str, str]) -> str:
+    """One static card, matching what hydrateArticles() builds client-side."""
+    return (
+        f'<a class="article-card" href="{html.escape(article["url"], quote=True)}" '
+        f'target="_blank" rel="noopener">'
+        f'<div class="article-meta"><span>{html.escape(article["category"])}</span>'
+        f'<time datetime="{html.escape(article["published"])}">'
+        f'{html.escape(article["dateLabel"])}</time></div>'
+        f'<h3>{html.escape(article["title"])}</h3>'
+        f'<p>{html.escape(article["excerpt"])}</p>'
+        f'<span class="read-article">Read article <b>\u2197</b></span></a>'
+    )
+
+
+def sync_static_cards(articles: list[dict[str, str]], page: Path) -> bool:
+    """Keep the no-JS fallback in writing.html in step with the feed.
+
+    The grid is replaced client-side when articles.json loads; without this the
+    static cards drift and visitors without JS see a stale subset.
+    """
+    if not page.exists():
+        return False
+    markup = page.read_text()
+    start = markup.find(GRID_OPEN)
+    if start == -1:
+        return False
+    body_start = start + len(GRID_OPEN)
+    end = markup.find("\n            " + GRID_CLOSE, body_start)
+    if end == -1:
+        return False
+    cards = "".join(
+        "\n                " + card_markup(article) for article in articles[:12]
+    )
+    updated = markup[:body_start] + cards + markup[end:]
+    if updated == markup:
+        return False
+    page.write_text(updated)
+    return True
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--feed", default=DEFAULT_FEED)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--page", type=Path, default=ARTICLES_PAGE)
     args = parser.parse_args()
 
     request = urllib.request.Request(args.feed, headers={"User-Agent": "integrallis.com article sync"})
@@ -106,6 +152,11 @@ def main() -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(articles[:12], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Wrote {len(articles[:12])} articles to {args.output}")
+
+    if sync_static_cards(articles, args.page):
+        print(f"Refreshed the no-JS fallback cards in {args.page}")
+    else:
+        print(f"Fallback cards in {args.page} already current")
 
 
 if __name__ == "__main__":
