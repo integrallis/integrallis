@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#F5F5F3">
+    <meta name="description" content="Every open-source project Integrallis maintains: the JVM AI stack, model routing and qualification, code-quality measurement, planning, deterministic replay, and data structures.">
+    <!-- gsc:start -->
+    <meta name="google-site-verification" content="PY7mJ3v08Vy4ePp9umYSkI69zbLLnTM1_BJsvxKDbd4">
+    <!-- gsc:end -->
+    <link rel="canonical" href="https://integrallis.com/open-source.html">
+    <meta property="og:site_name" content="Integrallis">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://integrallis.com/open-source.html">
+    <meta property="og:title" content="Open source — Integrallis">
+    <meta property="og:description" content="Every open-source project Integrallis maintains, across the JVM AI stack and the tooling around it.">
+    <meta property="og:image" content="https://integrallis.com/assets/images/og-integrallis.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Open source — Integrallis">
+    <meta name="twitter:description" content="Every open-source project Integrallis maintains, across the JVM AI stack and the tooling around it.">
+    <meta name="twitter:image" content="https://integrallis.com/assets/images/og-integrallis.jpg">
+    <title>Open source — Integrallis</title>
+    <link rel="preload" href="assets/fonts/ArchivoVF-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/MonaSansVF.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/MonaspaceKryptonVF.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><div class="site-shell header-inner">
+        <a class="brand" href="index.html" aria-label="Integrallis home"><img src="assets/images/logo-full-dark.png" alt="Integrallis" width="1987" height="356"></a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-button><span></span><span></span><span class="sr-only">Open navigation</span></button>
+        <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-menu><a href="research.html">Research</a><a href="java-ai.html">Java AI</a><a href="products.html">Products</a><a href="writing.html">Writing</a><a href="open-source.html" aria-current="page">Open source</a><a class="nav-action" href="mailto:info@integrallis.com">Contact <span>↗</span></a></nav>
+    </div></header>
+
+    <main id="main">
+        <section class="page-hero"><div class="site-shell page-hero-grid">
+            <div><p class="eyebrow">Apache 2.0 · MIT</p><h1>Integrallis <mark>OSS</mark></h1></div>
+            <div><p class="page-hero-summary">OSS Projects, released under permissive licences and useful on their own. Four compose into the JVM AI runtime; the rest came out of the research and ship on their own terms.</p><div class="page-index"><a href="https://github.com/integrallis" target="_blank" rel="noopener">Integrallis on GitHub ↗</a></div></div>
+        </div></section>
+
+        <section class="page-section"><div class="site-shell">
+            <div class="section-grid">
+                <p class="section-label"><span>01</span>Projects</p>
+                <div>
+                    <h2 class="content-heading">Libraries, tools, and a corpus.</h2>
+                    <p class="lead">Each one exists because a piece of the research needed it. The four at the top compose into a locally owned AI runtime and are documented in depth on the <a class="plain-link" href="java-ai.html">Java AI page</a>; the rest stand alone.</p>
+                </div>
+            </div>
+            <div class="oss-grid">
+                    <article class="oss-card">
+                        <div class="oss-card-head"><span class="oss-logo"><img src="assets/images/projects/vectors.webp" alt="" width="128" height="128" loading="lazy" decoding="async"></span><div class="oss-meta"><span>Java 25</span><span>Retrieval</span></div></div>
+                        <h3>Vectors</h3>
+                        <p>Embedded similarity search that runs inside your process: persistent collections, metadata filtering applied during the search, ANN indexes, and adapters for Spring AI and LangChain4j. Takes full advantage of the Java 25 Vector API.</p>
+                        <div class="oss-links"><a class="plain-link" href="https://github.com/integrallis/vectors" target="_blank" rel="noopener">View project ↗</a><a class="plain-link" href="https://integrallis.github.io/vectors/" target="_blank" rel="noopener">Documentation ↗</a></div>
+                    </article>
+                    <article class="oss-card">
+                        <div class="oss-card-head"><span class="oss-logo"><img src="assets/images/projects/models.webp" alt="" width="128" height="128" loading="lazy" decoding="async"></span><div class="oss-meta"><span>Java 25</span><span>Inference</span></div></div>
+                        <h3>Models</h3>
+                        <p>In-process small-language-model inference — no Python, no model server, no sidecar. Pure Java, native FFM, and Apple platform backends, selected from recorded capability evidence. Rides on Vectors.</p>
+                        <div class="oss-links"><a class="plain-link" href="https://github.com/integrallis/models" target="_blank" rel="noopener">View project ↗</a><a class="plain-link" href="https://integrallis.github.io/models/" target="_blank" rel="noopener">Documentation ↗</a></div>
+                    </article>
+                    <article class="oss-card">
+                        <div class="oss-card-head"><span class="oss-logo"><img src="assets/images/projects/modeljars.webp" alt="" width="128" height="128" loading="lazy" decoding="async"></span><div class="oss-meta"><span>JVM</span><span>Distribution</span></div></div>
+                        <h3>ModelJARs</h3>
+                        <p>Qualified, versioned model artifacts resolved through ordinary JVM dependency coordinates, with provenance and checksums verified against upstream weights. Declare a model the way you declare any other dependency.</p>
+                        <div class="oss-links"><a class="plain-link" href="https://modeljars.org" target="_blank" rel="noopener">modeljars.org ↗</a></div>
+                    </article>
+                    <article class="oss-card">
+                        <div class="oss-card-head"><span class="oss-logo oss-logo-mono" aria-hidden="true">Me</span><div class="oss-meta"><span>Java 25</span><span>Agentic memory</span></div></div>
+                        <h3>Memory</h3>
+                        <p>An open agentic memory layer: working and long-term stores, retrieval orchestration, consolidation, and conflict resolution. Framework-neutral at the core, with Spring AI, LangChain4j, and MCP surfaces.</p>
+                        <div class="oss-links"><span class="oss-nolink">Repository private</span></div>
+                    </article>
+                    <article class="oss-card">
+                        <div class="oss-card-head"><span class="oss-logo oss-logo-mono" aria-hidden="true">Rc</span><div class="oss-meta"><span>Corpus</span><span>Routing</span></div></div>
+                        <h3>Model router corpus</h3>
+                        <p>The reference corpus and qualification criteria behind intelligent routing: how candidate models are scored, compared, and published so a router can select on measured capability instead of reputation.</p>
+                        <div class="oss-links"><a class="plain-link" href="https://github.com/integrallis/model-router-corpus" target="_blank" rel="noopener">View corpus ↗</a></div>
+                    </article>
+                    <article class="oss-card">
+                        <div class="oss-card-head"><span class="oss-logo oss-logo-mono" aria-hidden="true">Mf</span><div class="oss-meta"><span>Java · Kotlin · Python</span><span>Code quality</span></div></div>
+                        <h3>MFCQI</h3>
+                        <p>A normalized, evidence-based code-quality score designed to act as a cheap canary in fast or autonomous development loops — keeping generated code from quietly compounding technical debt.</p>
+                        <div class="oss-links"><a class="plain-link" href="https://github.com/integrallis/mfcqi-java" target="_blank" rel="noopener">Java / Kotlin ↗</a><a class="plain-link" href="https://github.com/integrallis/mfcqi-python" target="_blank" rel="noopener">Python ↗</a></div>
+                    </article>
+                    <article class="oss-card">
+                        <div class="oss-card-head"><span class="oss-logo"><img src="assets/images/projects/langgoap.svg" alt="" width="128" height="128" loading="lazy" decoding="async"></span><div class="oss-meta"><span>Python · LangGraph</span><span>Planning</span></div></div>
+                        <h3>LangGOAP</h3>
+                        <p>Goal-oriented action planning for agents using deterministic A* search, with optional constraint optimization and automatic replanning when a step fails mid-execution.</p>
+                        <div class="oss-links"><a class="plain-link" href="https://github.com/LangGOAP/LangGOAP" target="_blank" rel="noopener">View project ↗</a></div>
+                    </article>
+                    <article class="oss-card">
+                        <div class="oss-card-head"><span class="oss-logo oss-logo-mono" aria-hidden="true">Lt</span><div class="oss-meta"><span>Tooling</span><span>Replay</span></div></div>
+                        <h3>LLMTivo</h3>
+                        <p>Record and replay model interactions so an evaluation, a regression test, or a demo is hermetic and repeatable rather than re-billed and re-rolled on every run.</p>
+                        <div class="oss-links"><a class="plain-link" href="https://github.com/integrallis/LLMTivo" target="_blank" rel="noopener">View project ↗</a></div>
+                    </article>
+                    <article class="oss-card">
+                        <div class="oss-card-head"><span class="oss-logo oss-logo-mono" aria-hidden="true">Pl</span><div class="oss-meta"><span>Rust</span><span>Data structures</span></div></div>
+                        <h3>pleat</h3>
+                        <p>Ribbon filters with pleated construction: a one-pass, cache-window reordering that builds space-optimal filters at close to Bloom-filter speed, roughly twice as fast as building in arrival order at scale. Companion to the Ribbon Catches Bloom paper.</p>
+                        <div class="oss-links"><a class="plain-link" href="https://github.com/integrallis/pleat" target="_blank" rel="noopener">View project ↗</a></div>
+                    </article>
+            </div>
+        </div></section>
+
+        <section class="contact-strip"><div class="site-shell contact-strip-grid"><div><p class="eyebrow">Build locally</p><h2>Own the runtime. Inspect the stack.</h2></div><a class="button" href="https://github.com/integrallis" target="_blank" rel="noopener">Integrallis on GitHub ↗</a></div></section>
+    </main>
+    <footer class="site-footer"><div class="site-shell footer-grid"><a class="footer-mark" href="index.html"><img src="assets/images/emblem-dark.png" alt="Integrallis home" width="1380" height="1314"></a><p>Integrallis Software, LLC<br>Scottsdale, Arizona</p><div class="footer-links"><a href="https://github.com/integrallis" target="_blank" rel="noopener">GitHub ↗</a><a href="https://medium.com/@bsbodden_68805" target="_blank" rel="noopener">Medium ↗</a><a href="mailto:info@integrallis.com">Email ↗</a></div><p class="copyright">© <span data-year>2026</span> Integrallis</p></div></footer>
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>

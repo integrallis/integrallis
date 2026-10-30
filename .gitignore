@@ -13,3 +13,6 @@ __pycache__/
 plan.md
 LAUNCH.md
 design/
+
+# local per-machine tool settings (not for the public repo)
+.claude/settings.local.json

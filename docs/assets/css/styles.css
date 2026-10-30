@@ -211,7 +211,9 @@ button { font: inherit; }
 
 /* Java AI */
 .stack-diagram { margin-top: 62px; border: 1px solid var(--dark-line); }
-.stack-row { display: grid; grid-template-columns: 80px 1fr .8fr 28px; gap: 30px; align-items: center; min-height: 150px; padding: 26px 30px; border-bottom: 1px solid var(--dark-line); }
+.stack-row { display: grid; grid-template-columns: 56px 64px 1fr .8fr 28px; gap: 24px; align-items: center; min-height: 150px; padding: 26px 30px; border-bottom: 1px solid var(--dark-line); }
+.stack-logo { width: 64px; height: 64px; display: grid; place-items: center; }
+.stack-logo img { width: 100%; height: 100%; object-fit: contain; }
 .stack-row:last-child { border-bottom: 0; }
 .stack-row:hover { background: var(--dark-surface); }
 .stack-number { color: var(--signal); font-family: var(--mono); font-size: .64rem; }
@@ -250,6 +252,22 @@ button { font: inherit; }
 .lang-icon { width: 13px; height: 13px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; opacity: .75; }
 .lang.plain { padding-left: 14px; position: relative; }
 .lang.plain::before { position: absolute; left: 4px; content: "·"; }
+
+/* Open source — project cards */
+.oss-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 18px; margin-top: 58px; }
+.oss-card { display: flex; min-height: 330px; flex-direction: column; padding: 26px; border: 1px solid var(--text); background: var(--surface); }
+.oss-card:hover { background: var(--bg); }
+.oss-card-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 26px; }
+.oss-logo { width: 56px; height: 56px; flex: none; display: grid; place-items: center; }
+.oss-logo img { width: 100%; height: 100%; object-fit: contain; }
+.oss-logo-mono { border: 1px solid var(--line); background: var(--bg); color: var(--muted); font-family: var(--display); font-size: 1.12rem; font-weight: 600; font-variation-settings: "wdth" 88; letter-spacing: -.02em; }
+.oss-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; color: var(--muted); font-family: var(--mono); font-size: .58rem; letter-spacing: .05em; text-transform: uppercase; text-align: right; }
+.oss-card h3 { margin: 0 0 12px; font-size: 1.6rem; font-weight: 600; letter-spacing: -.035em; }
+.oss-card p { margin: 0 0 26px; color: var(--muted); font-size: .79rem; line-height: 1.5; }
+.oss-links { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); }
+.oss-nolink { color: var(--muted); font-family: var(--mono); font-size: .62rem; text-transform: uppercase; }
+
+@media (max-width: 620px) { .oss-grid { grid-template-columns: 1fr; } .oss-card { min-height: 0; } }
 
 /* Products */
 .featured-product { display: grid; grid-template-columns: 1fr .78fr; border: 1px solid var(--text); background: var(--bg); }
@@ -502,7 +520,8 @@ div.stack-row:hover { background: transparent; }
     .paper-panel-copy, .featured-product-main { border-right: 0; border-bottom: 1px solid var(--text); }
     .finding-list { display: grid; grid-template-columns: 1fr 1fr; }
     .finding-list > div:nth-child(odd) { border-right: 1px solid var(--text); }
-    .stack-row { grid-template-columns: 55px .7fr 1fr 20px; }
+    .stack-row { grid-template-columns: 44px 52px .7fr 1fr 20px; gap: 18px; }
+    .stack-logo { width: 52px; height: 52px; }
     .product-row { grid-template-columns: 110px .55fr 1fr 25px; }
 }
 
@@ -537,8 +556,9 @@ div.stack-row:hover { background: transparent; }
     .research-loop div:nth-child(2) { border-right: 0; }
     .research-loop div:nth-child(-n+2) { border-bottom: 1px solid var(--dark-line); }
     .stack-diagram { margin-top: 45px; }
-    .stack-row { grid-template-columns: 38px 1fr 20px; gap: 16px; padding: 24px 18px; }
-    .stack-row p { grid-column: 2; }
+    .stack-row { grid-template-columns: 38px 40px 1fr 20px; gap: 14px; padding: 24px 18px; }
+    .stack-logo { width: 40px; height: 40px; }
+    .stack-row p { grid-column: 3; }
     .stack-arrow { grid-column: 3; grid-row: 1 / 3; }
     .runtime-boundary { grid-template-columns: 1fr; gap: 12px; }
     .oss-projects, .incubator-grid, .article-grid { grid-template-columns: 1fr; }
