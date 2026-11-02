@@ -299,6 +299,7 @@ button { font: inherit; }
 
 /* Writing */
 .writing-intro { max-width: 760px; }
+h2.section-label { margin: 0; }
 .section-label + .article-grid { margin-top: 26px; }
 .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--text); }
 .article-card { display: flex; min-height: 290px; flex-direction: column; padding: 26px; border-right: 1px solid var(--text); border-bottom: 1px solid var(--text); background: var(--bg); }

@@ -135,6 +135,68 @@ def sync_static_cards(articles: list[dict[str, str]], page: Path) -> bool:
     return True
 
 
+SCHEMA_OPEN = '<script type="application/ld+json" data-article-schema>'
+SCHEMA_CLOSE = "</script>"
+
+
+def article_schema(articles: list[dict[str, str]]) -> str:
+    """ItemList of the published articles, for the Blog page's structured data."""
+    items = [
+        {
+            "@type": "ListItem",
+            "position": index,
+            "item": {
+                "@type": "BlogPosting",
+                "headline": article["title"],
+                "url": article["url"],
+                "datePublished": article["published"],
+                "description": article["excerpt"],
+                "author": {"@type": "Person", "name": "Brian Sam-Bodden"},
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Integrallis Software, LLC",
+                    "url": "https://integrallis.com",
+                },
+            },
+        }
+        for index, article in enumerate(articles, start=1)
+    ]
+    payload = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Articles by Integrallis",
+        "itemListOrder": "https://schema.org/ItemListOrderDescending",
+        "numberOfItems": len(items),
+        "itemListElement": items,
+    }
+    return json.dumps(payload, indent=2, ensure_ascii=False)
+
+
+def sync_article_schema(articles: list[dict[str, str]], page: Path) -> bool:
+    """Keep the Blog page's ItemList in step with the feed.
+
+    Hand-maintained article schema goes stale the moment a post is published,
+    which is worse than none at all: it tells search engines the list is
+    complete when it is not. Deriving it here makes drift impossible.
+    """
+    if not page.exists():
+        return False
+    markup = page.read_text()
+    start = markup.find(SCHEMA_OPEN)
+    if start == -1:
+        return False
+    body_start = start + len(SCHEMA_OPEN)
+    end = markup.find(SCHEMA_CLOSE, body_start)
+    if end == -1:
+        return False
+    body = "\n" + "\n".join("    " + line for line in article_schema(articles[:12]).split("\n")) + "\n    "
+    updated = markup[:body_start] + body + markup[end:]
+    if updated == markup:
+        return False
+    page.write_text(updated)
+    return True
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--feed", default=DEFAULT_FEED)
@@ -157,6 +219,11 @@ def main() -> None:
         print(f"Refreshed the no-JS fallback cards in {args.page}")
     else:
         print(f"Fallback cards in {args.page} already current")
+
+    if sync_article_schema(articles, args.page):
+        print(f"Refreshed the article schema in {args.page}")
+    else:
+        print(f"Article schema in {args.page} already current")
 
 
 if __name__ == "__main__":
