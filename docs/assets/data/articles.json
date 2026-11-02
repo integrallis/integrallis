@@ -1,5 +1,21 @@
 [
   {
+    "title": "Using Jev-Style Models from ModelJars",
+    "url": "https://medium.com/@bsbodden_68805/using-jev-style-models-from-modeljars-784e94b42a34",
+    "published": "2026-10-30",
+    "dateLabel": "Oct 30, 2026",
+    "category": "Java AI",
+    "excerpt": "In the vast majority of RAG and Agentic applications, a lot of what the application asks of a model is to make decisions: which queue does this ticket go to, is it urgent, is this answer grounded in the…"
+  },
+  {
+    "title": "ModelJars… your local JVM AI model catalog",
+    "url": "https://medium.com/@bsbodden_68805/modeljars-your-local-jvm-ai-model-catalog-d51e1845cb1d",
+    "published": "2026-10-28",
+    "dateLabel": "Oct 28, 2026",
+    "category": "Java AI",
+    "excerpt": "ModelJars publishes AI models as Maven artifacts. You add a coordinate, and the model’s weights arrive through the same resolver that brings you any other JAR resources declared in your project’s dependencies.…"
+  },
+  {
     "title": "Deep Dive into the Vectors Library",
     "url": "https://medium.com/@bsbodden_68805/deep-dive-into-the-vectors-library-2f774d816d58",
     "published": "2026-10-05",
