@@ -19,12 +19,179 @@
     <!-- gsc:start -->
     <meta name="google-site-verification" content="PY7mJ3v08Vy4ePp9umYSkI69zbLLnTM1_BJsvxKDbd4">
     <!-- gsc:end -->
-    <title>Writing — Integrallis</title>
+    <title>Integrallis Writing — technical writings from our team</title>
     <link rel="preload" href="assets/fonts/ArchivoVF-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/MonaSansVF.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/MonaspaceKryptonVF.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets/css/styles.css"><link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Integrallis Writing — technical writings from our team",
+      "url": "https://integrallis.com/writing.html",
+      "description": "Articles and field notes from Integrallis on Java AI, vector search, agentic software engineering, code quality, and applied computer science.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Integrallis",
+        "url": "https://integrallis.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Integrallis Software, LLC",
+        "url": "https://integrallis.com"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://integrallis.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Writing",
+            "item": "https://integrallis.com/writing.html"
+          }
+        ]
+      }
+    }
+    </script>
+    <script type="application/ld+json" data-article-schema>
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Articles by Integrallis",
+      "itemListOrder": "https://schema.org/ItemListOrderDescending",
+      "numberOfItems": 6,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "BlogPosting",
+            "headline": "Using Jev-Style Models from ModelJars",
+            "url": "https://medium.com/@bsbodden_68805/using-jev-style-models-from-modeljars-784e94b42a34",
+            "datePublished": "2026-10-30",
+            "description": "In the vast majority of RAG and Agentic applications, a lot of what the application asks of a model is to make decisions: which queue does this ticket go to, is it urgent, is this answer grounded in the…",
+            "author": {
+              "@type": "Person",
+              "name": "Brian Sam-Bodden"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Integrallis Software, LLC",
+              "url": "https://integrallis.com"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "BlogPosting",
+            "headline": "ModelJars… your local JVM AI model catalog",
+            "url": "https://medium.com/@bsbodden_68805/modeljars-your-local-jvm-ai-model-catalog-d51e1845cb1d",
+            "datePublished": "2026-10-28",
+            "description": "ModelJars publishes AI models as Maven artifacts. You add a coordinate, and the model’s weights arrive through the same resolver that brings you any other JAR resources declared in your project’s dependencies.…",
+            "author": {
+              "@type": "Person",
+              "name": "Brian Sam-Bodden"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Integrallis Software, LLC",
+              "url": "https://integrallis.com"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "BlogPosting",
+            "headline": "Deep Dive into the Vectors Library",
+            "url": "https://medium.com/@bsbodden_68805/deep-dive-into-the-vectors-library-2f774d816d58",
+            "datePublished": "2026-10-05",
+            "description": "Is the Vectors library a Vector Database? It provides persistent, searchable vector collections inside your JVM. The TLDR of it is that you can have vector collections in your JVM. Why would you want to do…",
+            "author": {
+              "@type": "Person",
+              "name": "Brian Sam-Bodden"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Integrallis Software, LLC",
+              "url": "https://integrallis.com"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "BlogPosting",
+            "headline": "A VCR for your Java AI Tests",
+            "url": "https://medium.com/@bsbodden_68805/a-vcr-for-your-java-ai-tests-b2d6af12dd4b",
+            "datePublished": "2026-08-24",
+            "description": "Don’t get me wrong, unit tests are important, but integration tests give me much greater peace of mind. Add an LLM and those tests become slow, costly, tied to credentials, and unpredictable. Mocking the model…",
+            "author": {
+              "@type": "Person",
+              "name": "Brian Sam-Bodden"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Integrallis Software, LLC",
+              "url": "https://integrallis.com"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "BlogPosting",
+            "headline": "In-JVM RAG That Survives Restarts",
+            "url": "https://medium.com/@bsbodden_68805/in-jvm-rag-that-survives-restarts-4de4e15a4aa1",
+            "datePublished": "2026-07-31",
+            "description": "Craig Walls published a recipe using the Vectors library that takes a working Spring AI RAG application, substitutes Qdrant for the Vectors Java Library and does away with the complexity of managing an external…",
+            "author": {
+              "@type": "Person",
+              "name": "Brian Sam-Bodden"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Integrallis Software, LLC",
+              "url": "https://integrallis.com"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "BlogPosting",
+            "headline": "The importance of code quality gates in Agentic Code Generation",
+            "url": "https://medium.com/@bsbodden_68805/the-importance-of-code-quality-gates-in-agentic-code-generation-9d77d32a3ee7",
+            "datePublished": "2026-07-01",
+            "description": "Last year I was working on the idea of an agentic code generator like Claude Code that would be just as critical as I am about some engineering practices. Practices like TDD (Test-Driven Development) or…",
+            "author": {
+              "@type": "Person",
+              "name": "Brian Sam-Bodden"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Integrallis Software, LLC",
+              "url": "https://integrallis.com"
+            }
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -41,7 +208,7 @@
         </div></section>
 
         <section class="page-section"><div class="site-shell">
-            <div class="section-label"><span>Latest</span>Articles</div>
+            <h2 class="section-label"><span>Latest</span>Articles</h2>
             <div class="article-grid" data-articles>
                 <a class="article-card" href="https://medium.com/@bsbodden_68805/using-jev-style-models-from-modeljars-784e94b42a34" target="_blank" rel="noopener"><div class="article-meta"><span>Java AI</span><time datetime="2026-10-30">Oct 30, 2026</time></div><h3>Using Jev-Style Models from ModelJars</h3><p>In the vast majority of RAG and Agentic applications, a lot of what the application asks of a model is to make decisions: which queue does this ticket go to, is it urgent, is this answer grounded in the…</p><span class="read-article">Read article <b>↗</b></span></a>
                 <a class="article-card" href="https://medium.com/@bsbodden_68805/modeljars-your-local-jvm-ai-model-catalog-d51e1845cb1d" target="_blank" rel="noopener"><div class="article-meta"><span>Java AI</span><time datetime="2026-10-28">Oct 28, 2026</time></div><h3>ModelJars… your local JVM AI model catalog</h3><p>ModelJars publishes AI models as Maven artifacts. You add a coordinate, and the model’s weights arrive through the same resolver that brings you any other JAR resources declared in your project’s dependencies.…</p><span class="read-article">Read article <b>↗</b></span></a>

@@ -65,7 +65,7 @@ def check_markup(page: Path, html: str) -> None:
 
 
 def check_json_ld(page: Path, html: str) -> None:
-    for raw in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S):
+    for raw in re.findall(r'<script type="application/ld\+json"[^>]*>(.*?)</script>', html, re.S):
         try:
             data = json.loads(raw)
         except json.JSONDecodeError as exc:
@@ -79,6 +79,30 @@ def check_json_ld(page: Path, html: str) -> None:
             path = urlparse(action.split("{")[0]).path.strip("/")
             if path and not (DOCS / path).exists() and not (DOCS / f"{path}.html").exists():
                 fail(page, f"schema declares an endpoint the site does not have: /{path}")
+
+
+
+def indexed_pages() -> set[str]:
+    """Paths the sitemap advertises, i.e. the pages search engines are told to index."""
+    sitemap = DOCS / "sitemap.xml"
+    if not sitemap.exists():
+        return set()
+    locs = re.findall(r"<loc>\s*([^<]+?)\s*</loc>", sitemap.read_text(encoding="utf-8"))
+    return {urlparse(loc).path.lstrip("/") or "index.html" for loc in locs}
+
+
+def check_schema_present(page: Path, html: str, indexed: set[str]) -> None:
+    """An indexed page with no structured data is an SEO hole we have already paid for.
+
+    A live audit found four pages shipping without JSON-LD while check_site.py
+    passed, because this file only validated blocks that happened to exist.
+    Redirect stubs and 404.html are not indexed and are exempt.
+    """
+    rel = page.relative_to(DOCS).as_posix()
+    if rel not in indexed:
+        return
+    if not re.search(r'<script type="application/ld\+json"[^>]*>\s*\S', html):
+        fail(page, "indexed page has no JSON-LD structured data")
 
 
 def check_dates(page: Path, html: str) -> None:
@@ -126,10 +150,12 @@ def main() -> int:
     if not pages:
         print("no pages found", file=sys.stderr)
         return 1
+    indexed = indexed_pages()
     for page in pages:
         html = page.read_text(encoding="utf-8")
         check_markup(page, html)
         check_json_ld(page, html)
+        check_schema_present(page, html, indexed)
         check_dates(page, html)
         check_hosts(page, html)
         check_local_refs(page, html)
