@@ -30,6 +30,7 @@ ORGANIZATION = {
     "@id": ORG_ID,
     "name": "Integrallis",
     "legalName": "Integrallis Software, LLC",
+    "description": "Integrallis is an independent AI research and development company in Scottsdale, Arizona, building infrastructure that runs retrieval, inference and memory inside your own process, on hardware you control.",
     "url": f"{SITE}/",
     "logo": {
         "@type": "ImageObject",
@@ -71,6 +72,77 @@ PAGES = {
 
 MARKER = '<script type="application/ld+json" data-page-schema>'
 
+
+
+# Real reader questions with direct answers, not existing prose relabelled.
+# Both the visible markup and the FAQPage schema are generated from this one
+# definition so they cannot drift apart. Answers are drawn only from what the
+# pages already state - the product answer tracks the status labels verbatim.
+FAQ = {
+    "java-ai": [
+        ("Do you need Python to run AI inside a Java application?",
+         "No. Vectors handles retrieval and Models handles inference, both inside your JVM process. "
+         "There is no Python sidecar and no separate vector service to operate."),
+        ("How do model weights get into a build?",
+         "ModelJARs publishes them as Maven artifacts. You add a coordinate and the weights resolve "
+         "through the same dependency mechanism that brings in any other JAR."),
+        ("When is a local model the wrong choice?",
+         "When the measurements say so. Model qualification exists to answer that per task rather than "
+         "per reputation, and we publish the cases where a frontier model wins."),
+    ],
+    "products": [
+        ("What can I use right now?",
+         "RankCLI and AniMERM.ai are live. Moobi is launching shortly at moobi.dev. PodMrk.ai is live "
+         "but still a stub. OS/A and tbltalk.ai are exploratory and not yet available."),
+        ("How do the products relate to the research?",
+         "Each one started as a research result that needed somewhere to run. The research program and "
+         "the open-source libraries are the same work at an earlier stage."),
+    ],
+    "research": [
+        ("What does a study have to clear to be listed here?",
+         "Its own stated method, limits and noise floor. Every number traces to a committed raw "
+         "artifact; if a script cannot derive it, it does not appear in the paper."),
+        ("Do you publish negative results?",
+         "Yes. A failed hypothesis is the result. The papers keep the measurements that did not "
+         "support the idea rather than dropping them."),
+    ],
+}
+
+FAQ_MARKER = '<section class="faq" data-faq>'
+
+
+def faq_markup(slug: str) -> str:
+    rows = "\n".join(
+        f"                <div class=\"faq-item\">\n"
+        f"                    <h3>{q}</h3>\n"
+        f"                    <p>{a}</p>\n"
+        f"                </div>"
+        for q, a in FAQ[slug]
+    )
+    return (
+        f'        {FAQ_MARKER}<div class="site-shell">\n'
+        f'            <div class="section-grid">\n'
+        f'                <p class="section-label"><span>FAQ</span>Questions</p>\n'
+        f'                <div><h2 class="content-heading">Asked and answered.</h2></div>\n'
+        f'            </div>\n'
+        f'            <div class="faq-list">\n{rows}\n            </div>\n'
+        f'        </div></section>\n'
+    )
+
+
+def faq_schema(slug: str) -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a},
+            }
+            for q, a in FAQ[slug]
+        ],
+    }
 
 def newest_article_date() -> str | None:
     """dateModified for the Blog page, taken from the feed rather than invented."""
@@ -119,7 +191,10 @@ def page_graph(slug: str, ptype: str, crumb: str | None, title: str, desc: str) 
     site["@context"] = "https://schema.org"
     page["@context"] = "https://schema.org"
     page["mainEntity"] = {"@id": ORG_ID}
-    return [org, site, page]
+    out = [org, site, page]
+    if slug in FAQ:
+        out.append(faq_schema(slug))
+    return out
 
 
 def main() -> int:
@@ -153,8 +228,20 @@ def main() -> int:
                 flags=re.S,
             )
             html = html.replace("</head>", f"    {new_block}\n</head>", 1)
+        if slug in FAQ:
+            block = faq_markup(slug)
+            start = html.find(FAQ_MARKER)
+            if start != -1:
+                line = html.rfind("\n", 0, start) + 1
+                close = html.index("</section>", start) + len("</section>\n")
+                html = html[:line] + html[close:]
+            strip = html.index('<section class="contact-strip">')
+            line = html.rfind("\n", 0, strip) + 1
+            html = html[:line] + block + html[line:]
+
         path.write_text(html, encoding="utf-8")
-        print(f"{slug}.html  <- blocks[Organization, WebSite, {ptype}]")
+        extra = " + FAQPage" if slug in FAQ else ""
+        print(f"{slug}.html  <- blocks[Organization, WebSite, {ptype}]{extra}")
     return 0
 
 
