@@ -21,51 +21,74 @@
     <!-- gsc:start -->
     <meta name="google-site-verification" content="PY7mJ3v08Vy4ePp9umYSkI69zbLLnTM1_BJsvxKDbd4">
     <!-- gsc:end -->
-    <title>Integrallis — AI you own, with the measurements to prove it</title>
+    <title>Integrallis — AI you own, and the measurements that proved it</title>
     <link rel="preload" href="assets/fonts/ArchivoVF-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/MonaSansVF.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/MonaspaceKryptonVF.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Integrallis Software, LLC",
-      "url": "https://integrallis.com",
-      "logo": "https://integrallis.com/assets/images/logo-full-dark.png",
-      "image": "https://integrallis.com/assets/images/og-integrallis.jpg",
-      "email": "info@integrallis.com",
-      "telephone": "+1-480-463-4962",
-      "foundingDate": "2002",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Scottsdale",
-        "addressRegion": "AZ",
-        "addressCountry": "US"
-      },
-      "sameAs": [
-        "https://github.com/integrallis",
-        "https://medium.com/@bsbodden_68805"
-      ],
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://integrallis.com/"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Integrallis",
-      "url": "https://integrallis.com"
-    }
-    </script>
     <link rel="preload" href="assets/images/hero/hero-primary.webp" as="image" fetchpriority="high">
+    <script type="application/ld+json" data-page-schema>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://integrallis.com/#organization",
+          "name": "Integrallis Software, LLC",
+          "alternateName": "Integrallis",
+          "url": "https://integrallis.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://integrallis.com/assets/images/logo-full-dark.png"
+          },
+          "image": "https://integrallis.com/assets/images/og-integrallis.jpg",
+          "email": "info@integrallis.com",
+          "telephone": "+1-480-463-4962",
+          "foundingDate": "2002",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Scottsdale",
+            "addressRegion": "AZ",
+            "addressCountry": "US"
+          },
+          "sameAs": [
+            "https://github.com/integrallis",
+            "https://medium.com/@bsbodden_68805"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://integrallis.com/#website",
+          "name": "Integrallis",
+          "url": "https://integrallis.com/",
+          "publisher": {
+            "@id": "https://integrallis.com/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://integrallis.com/#webpage",
+          "url": "https://integrallis.com/",
+          "name": "Integrallis — AI you own, and the measurements that proved it",
+          "description": "Integrallis builds AI infrastructure that runs on hardware you control, and publishes the measurements that say when local execution is enough.",
+          "isPartOf": {
+            "@id": "https://integrallis.com/#website"
+          },
+          "publisher": {
+            "@id": "https://integrallis.com/#organization"
+          },
+          "about": {
+            "@id": "https://integrallis.com/#organization"
+          },
+          "inLanguage": "en-US"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>

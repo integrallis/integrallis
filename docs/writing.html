@@ -22,45 +22,9 @@
     <title>Integrallis Writing — technical writings from our team</title>
     <link rel="preload" href="assets/fonts/ArchivoVF-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/MonaSansVF.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/MonaspaceKryptonVF.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/css/styles.css"><link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+    <link rel="stylesheet" href="assets/css/styles.min.css"><link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "Integrallis Writing — technical writings from our team",
-      "url": "https://integrallis.com/writing.html",
-      "description": "Articles and field notes from Integrallis on Java AI, vector search, agentic software engineering, code quality, and applied computer science.",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Integrallis",
-        "url": "https://integrallis.com"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Integrallis Software, LLC",
-        "url": "https://integrallis.com"
-      },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://integrallis.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Writing",
-            "item": "https://integrallis.com/writing.html"
-          }
-        ]
-      }
-    }
-    </script>
     <script type="application/ld+json" data-article-schema>
     {
       "@context": "https://schema.org",
@@ -188,6 +152,82 @@
               "url": "https://integrallis.com"
             }
           }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json" data-page-schema>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://integrallis.com/#organization",
+          "name": "Integrallis Software, LLC",
+          "alternateName": "Integrallis",
+          "url": "https://integrallis.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://integrallis.com/assets/images/logo-full-dark.png"
+          },
+          "image": "https://integrallis.com/assets/images/og-integrallis.jpg",
+          "email": "info@integrallis.com",
+          "telephone": "+1-480-463-4962",
+          "foundingDate": "2002",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Scottsdale",
+            "addressRegion": "AZ",
+            "addressCountry": "US"
+          },
+          "sameAs": [
+            "https://github.com/integrallis",
+            "https://medium.com/@bsbodden_68805"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://integrallis.com/#website",
+          "name": "Integrallis",
+          "url": "https://integrallis.com/",
+          "publisher": {
+            "@id": "https://integrallis.com/#organization"
+          }
+        },
+        {
+          "@type": "Blog",
+          "@id": "https://integrallis.com/writing.html#webpage",
+          "url": "https://integrallis.com/writing.html",
+          "name": "Integrallis Writing — technical writings from our team",
+          "description": "Articles and field notes from Integrallis on Java AI, vector search, agentic software engineering, code quality, and applied computer science.",
+          "isPartOf": {
+            "@id": "https://integrallis.com/#website"
+          },
+          "publisher": {
+            "@id": "https://integrallis.com/#organization"
+          },
+          "about": {
+            "@id": "https://integrallis.com/#organization"
+          },
+          "inLanguage": "en-US",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://integrallis.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Writing",
+                "item": "https://integrallis.com/writing.html"
+              }
+            ]
+          },
+          "dateModified": "2026-10-30"
         }
       ]
     }

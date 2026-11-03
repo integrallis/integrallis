@@ -25,45 +25,84 @@
     <link rel="preload" href="assets/fonts/ArchivoVF-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/MonaSansVF.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/MonaspaceKryptonVF.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <script type="application/ld+json">
+    <script type="application/ld+json" data-page-schema>
     {
       "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Integrallis Research — open questions held to evidence",
-      "url": "https://integrallis.com/research.html",
-      "description": "The Integrallis research program: applied AI and efficient inference, agentic software engineering, frontier questions in representation and reasoning, and human–agent interfaces.",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Integrallis",
-        "url": "https://integrallis.com"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Integrallis Software, LLC",
-        "url": "https://integrallis.com"
-      },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://integrallis.com/"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://integrallis.com/#organization",
+          "name": "Integrallis Software, LLC",
+          "alternateName": "Integrallis",
+          "url": "https://integrallis.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://integrallis.com/assets/images/logo-full-dark.png"
           },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Research",
-            "item": "https://integrallis.com/research.html"
+          "image": "https://integrallis.com/assets/images/og-integrallis.jpg",
+          "email": "info@integrallis.com",
+          "telephone": "+1-480-463-4962",
+          "foundingDate": "2002",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Scottsdale",
+            "addressRegion": "AZ",
+            "addressCountry": "US"
+          },
+          "sameAs": [
+            "https://github.com/integrallis",
+            "https://medium.com/@bsbodden_68805"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://integrallis.com/#website",
+          "name": "Integrallis",
+          "url": "https://integrallis.com/",
+          "publisher": {
+            "@id": "https://integrallis.com/#organization"
           }
-        ]
-      }
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://integrallis.com/research.html#webpage",
+          "url": "https://integrallis.com/research.html",
+          "name": "Integrallis Research — open questions held to evidence",
+          "description": "The Integrallis research program: applied AI and efficient inference, agentic software engineering, frontier questions in representation and reasoning, and human–agent interfaces.",
+          "isPartOf": {
+            "@id": "https://integrallis.com/#website"
+          },
+          "publisher": {
+            "@id": "https://integrallis.com/#organization"
+          },
+          "about": {
+            "@id": "https://integrallis.com/#organization"
+          },
+          "inLanguage": "en-US",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://integrallis.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Research",
+                "item": "https://integrallis.com/research.html"
+              }
+            ]
+          }
+        }
+      ]
     }
     </script>
 </head>
