@@ -28,8 +28,8 @@ SITE_ID = f"{SITE}/#website"
 ORGANIZATION = {
     "@type": "Organization",
     "@id": ORG_ID,
-    "name": "Integrallis Software, LLC",
-    "alternateName": "Integrallis",
+    "name": "Integrallis",
+    "legalName": "Integrallis Software, LLC",
     "url": f"{SITE}/",
     "logo": {
         "@type": "ImageObject",
