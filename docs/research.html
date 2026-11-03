@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#F5F5F3">
-    <meta name="description" content="The Integrallis research program: applied AI and efficient inference, agentic software engineering, frontier questions in representation and reasoning, and human–agent interfaces.">
+    <meta name="description" content="Five open studies on agentic memory, model routing and filter design — with the measurements, including the ones that didn't work.">
     <link rel="canonical" href="https://integrallis.com/research.html">
     <meta property="og:site_name" content="Integrallis">
     <meta property="og:type" content="website">
@@ -36,6 +36,7 @@
       "@id": "https://integrallis.com/#organization",
       "name": "Integrallis",
       "legalName": "Integrallis Software, LLC",
+      "description": "Integrallis is an independent AI research and development company in Scottsdale, Arizona, building infrastructure that runs retrieval, inference and memory inside your own process, on hardware you control.",
       "url": "https://integrallis.com/",
       "logo": {
         "@type": "ImageObject",
@@ -80,7 +81,7 @@
       "@id": "https://integrallis.com/research.html#webpage",
       "url": "https://integrallis.com/research.html",
       "name": "Integrallis Research — open questions held to evidence",
-      "description": "The Integrallis research program: applied AI and efficient inference, agentic software engineering, frontier questions in representation and reasoning, and human–agent interfaces.",
+      "description": "Five open studies on agentic memory, model routing and filter design — with the measurements, including the ones that didn't work.",
       "isPartOf": {
         "@id": "https://integrallis.com/#website"
       },
@@ -112,6 +113,30 @@
       "mainEntity": {
         "@id": "https://integrallis.com/#organization"
       }
+    }
+    </script>
+    <script type="application/ld+json" data-page-schema>
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does a study have to clear to be listed here?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Its own stated method, limits and noise floor. Every number traces to a committed raw artifact; if a script cannot derive it, it does not appear in the paper."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you publish negative results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A failed hypothesis is the result. The papers keep the measurements that did not support the idea rather than dropping them."
+          }
+        }
+      ]
     }
     </script>
 </head>
@@ -240,7 +265,17 @@
                         </a>
                     </article>
                     </div>
-            </div>
+                            <div class="prior-work">
+                    <h3>Prior work the filter line builds on</h3>
+                    <p>The pleated-construction study is measured against these in fastfilter_cpp, the comparative harness their authors use. Listing them is not decoration: they are the baselines, and a result that beats them has to beat them in their own benchmark.</p>
+                    <ul>
+                        <li><a href="https://arxiv.org/abs/1912.08258" target="_blank" rel="noopener">Xor Filters: Faster and Smaller Than Bloom and Cuckoo Filters</a><span>Graf, Lemire · arXiv:1912.08258 · 2019</span></li>
+                        <li><a href="https://arxiv.org/abs/2201.01174" target="_blank" rel="noopener">Binary Fuse Filters: Fast and Smaller Than Xor Filters</a><span>Graf, Lemire · arXiv:2201.01174 · 2022</span></li>
+                        <li><a href="https://arxiv.org/abs/2109.01892" target="_blank" rel="noopener">Fast Succinct Retrieval and Approximate Membership using Ribbon</a><span>Dillinger, Hübschle-Schneider, Sanders, Walzer · arXiv:2109.01892 · 2021</span></li>
+                        <li><a href="https://arxiv.org/abs/2203.17139" target="_blank" rel="noopener">Prefix Filter: Practically and Theoretically Better Than Bloom</a><span>Even, Even, Morrison · arXiv:2203.17139 · 2022</span></li>
+                    </ul>
+                </div>
+</div>
         </section>
 
         <section class="page-section dark-section" id="programs" aria-labelledby="programs-title">
@@ -318,6 +353,22 @@
             </div>
         </section>
 
+        <section class="faq" data-faq><div class="site-shell">
+            <div class="section-grid">
+                <p class="section-label"><span>FAQ</span>Questions</p>
+                <div><h2 class="content-heading">Asked and answered.</h2></div>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>What does a study have to clear to be listed here?</h3>
+                    <p>Its own stated method, limits and noise floor. Every number traces to a committed raw artifact; if a script cannot derive it, it does not appear in the paper.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you publish negative results?</h3>
+                    <p>Yes. A failed hypothesis is the result. The papers keep the measurements that did not support the idea rather than dropping them.</p>
+                </div>
+            </div>
+        </div></section>
         <section class="contact-strip">
             <div class="site-shell contact-strip-grid">
                 <div>

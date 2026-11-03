@@ -319,9 +319,30 @@ h2.section-label { margin: 0; }
     .article-card:nth-child(2n+1) { border-left: 1px solid var(--text); }
 }
 
+.prior-work { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--line); }
+.prior-work h3 { margin: 0 0 12px; font-family: var(--display); font-size: 1.15rem; font-weight: 500; letter-spacing: -.02em; }
+.prior-work > p { max-width: 760px; margin: 0 0 26px; color: var(--muted); font-size: .8rem; line-height: 1.6; }
+.prior-work ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.prior-work li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.prior-work li a { font-family: var(--sans); font-size: .85rem; text-decoration: none; border-bottom: 1px solid var(--muted); }
+.prior-work li a:hover { border-bottom-color: var(--text); }
+.prior-work li span { color: var(--muted); font-family: var(--mono); font-size: .62rem; }
+
+.faq { padding: 110px 0; border-top: 1px solid var(--line); }
+.faq-list { margin-top: 44px; border-top: 1px solid var(--text); }
+.faq-item { display: grid; grid-template-columns: minmax(0, .9fr) 1fr; gap: 24px 9vw; padding: 30px 0; border-bottom: 1px solid var(--line); }
+.faq-item h3 { margin: 0; font-family: var(--display); font-size: clamp(1.05rem, 1.5vw, 1.4rem); font-weight: 500; letter-spacing: -.02em; line-height: 1.2; }
+.faq-item p { margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.6; }
+
+@media (max-width: 760px) {
+    .faq { padding: 70px 0; }
+    .faq-item { grid-template-columns: 1fr; gap: 10px; }
+}
+
 .contact-strip { padding: 90px 0; background: var(--signal); }
 .contact-strip-grid { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; }
 .contact-strip h2 { max-width: 800px; margin: 20px 0 0; font-size: var(--h2-size); font-weight: 500; letter-spacing: -.03em; line-height: 1.02; }
+.contact-strip p:not([class]) { max-width: 640px; margin: 16px 0 0; font-size: .82rem; line-height: 1.5; }
 .contact-strip .button { background: var(--bg); }
 .contact-strip .button:hover { background: var(--text); color: var(--bg); }
 

@@ -31,6 +31,7 @@
       "@id": "https://integrallis.com/#organization",
       "name": "Integrallis",
       "legalName": "Integrallis Software, LLC",
+      "description": "Integrallis is an independent AI research and development company in Scottsdale, Arizona, building infrastructure that runs retrieval, inference and memory inside your own process, on hardware you control.",
       "url": "https://integrallis.com/",
       "logo": {
         "@type": "ImageObject",
@@ -109,6 +110,38 @@
       }
     }
     </script>
+    <script type="application/ld+json" data-page-schema>
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you need Python to run AI inside a Java application?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Vectors handles retrieval and Models handles inference, both inside your JVM process. There is no Python sidecar and no separate vector service to operate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do model weights get into a build?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ModelJARs publishes them as Maven artifacts. You add a coordinate and the weights resolve through the same dependency mechanism that brings in any other JAR."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is a local model the wrong choice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When the measurements say so. Model qualification exists to answer that per task rather than per reputation, and we publish the cases where a frontier model wins."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -176,6 +209,26 @@
             </div>
         </div></section>
 
+        <section class="faq" data-faq><div class="site-shell">
+            <div class="section-grid">
+                <p class="section-label"><span>FAQ</span>Questions</p>
+                <div><h2 class="content-heading">Asked and answered.</h2></div>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Do you need Python to run AI inside a Java application?</h3>
+                    <p>No. Vectors handles retrieval and Models handles inference, both inside your JVM process. There is no Python sidecar and no separate vector service to operate.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do model weights get into a build?</h3>
+                    <p>ModelJARs publishes them as Maven artifacts. You add a coordinate and the weights resolve through the same dependency mechanism that brings in any other JAR.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>When is a local model the wrong choice?</h3>
+                    <p>When the measurements say so. Model qualification exists to answer that per task rather than per reputation, and we publish the cases where a frontier model wins.</p>
+                </div>
+            </div>
+        </div></section>
         <section class="contact-strip"><div class="site-shell contact-strip-grid"><div><p class="eyebrow">Build locally</p><h2>Own the runtime. Inspect the stack.</h2></div><a class="button" href="https://github.com/integrallis" target="_blank" rel="noopener">Integrallis on GitHub ↗</a></div></section>
     </main>
     <footer class="site-footer"><div class="site-shell footer-grid"><a class="footer-mark" href="index.html"><img src="assets/images/emblem-dark-47.webp" srcset="assets/images/emblem-dark-47.webp 1x, assets/images/emblem-dark-94.webp 2x" alt="Integrallis home" width="47" height="45"></a><p>Integrallis Software, LLC<br>Scottsdale, Arizona</p><div class="footer-links"><a href="https://github.com/integrallis" target="_blank" rel="noopener">GitHub ↗</a><a href="https://medium.com/@bsbodden_68805" target="_blank" rel="noopener">Medium ↗</a><a href="mailto:info@integrallis.com">Email ↗</a></div><p class="copyright">© <span data-year>2026</span> Integrallis</p></div></footer>
