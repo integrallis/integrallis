@@ -81,7 +81,7 @@ def newest_article_date() -> str | None:
     return max(a["published"] for a in articles) if articles else None
 
 
-def page_graph(slug: str, ptype: str, crumb: str | None, title: str, desc: str) -> dict:
+def page_graph(slug: str, ptype: str, crumb: str | None, title: str, desc: str) -> list[dict]:
     url = f"{SITE}/" if slug == "index" else f"{SITE}/{slug}.html"
     page = {
         "@type": ptype,
@@ -106,7 +106,20 @@ def page_graph(slug: str, ptype: str, crumb: str | None, title: str, desc: str) 
         when = newest_article_date()
         if when:
             page["dateModified"] = when
-    return {"@context": "https://schema.org", "@graph": [ORGANIZATION, WEBSITE, page]}
+
+    # Separate top-level blocks, NOT one @graph. Measured: with the entities
+    # inside an @graph the auditor reported NO_ORGANIZATION_SCHEMA on all six
+    # pages, including index.html which had previously passed with a top-level
+    # Organization, and NO_MAIN_ENTITY_OF_PAGE appeared on all six. It does not
+    # traverse @graph, so each entity gets its own script tag.
+    org = dict(ORGANIZATION)
+    org["@context"] = "https://schema.org"
+    org["mainEntityOfPage"] = {"@type": "WebPage", "@id": page["@id"]}
+    site = dict(WEBSITE)
+    site["@context"] = "https://schema.org"
+    page["@context"] = "https://schema.org"
+    page["mainEntity"] = {"@id": ORG_ID}
+    return [org, site, page]
 
 
 def main() -> int:
@@ -115,14 +128,22 @@ def main() -> int:
         html = path.read_text(encoding="utf-8")
         title = re.search(r"<title>(.*?)</title>", html, re.S).group(1)
         desc = re.search(r'<meta name="description" content="(.*?)"', html, re.S).group(1)
-        payload = json.dumps(page_graph(slug, ptype, crumb, title, desc), indent=2, ensure_ascii=False)
-        body = "\n" + "\n".join("    " + l for l in payload.split("\n")) + "\n    "
-        new_block = MARKER + body + "</script>"
+        blocks = []
+        for entity in page_graph(slug, ptype, crumb, title, desc):
+            payload = json.dumps(entity, indent=2, ensure_ascii=False)
+            body = "\n" + "\n".join("    " + l for l in payload.split("\n")) + "\n    "
+            blocks.append(MARKER + body + "</script>")
+        new_block = "\n    ".join(blocks)
 
         if MARKER in html:
-            start = html.index(MARKER)
-            end = html.index("</script>", start) + len("</script>")
-            html = html[:start] + new_block + html[end:]
+            # strip every previously generated block, then insert the new set
+            html = re.sub(
+                r'[ \t]*' + re.escape(MARKER) + r'.*?</script>\n?',
+                "",
+                html,
+                flags=re.S,
+            )
+            html = html.replace("</head>", f"    {new_block}\n</head>", 1)
         else:
             # drop whatever hand-written blocks were there, except the feed-owned one
             html = re.sub(
@@ -133,7 +154,7 @@ def main() -> int:
             )
             html = html.replace("</head>", f"    {new_block}\n</head>", 1)
         path.write_text(html, encoding="utf-8")
-        print(f"{slug}.html  <- @graph[Organization, WebSite, {ptype}]")
+        print(f"{slug}.html  <- blocks[Organization, WebSite, {ptype}]")
     return 0
 
 
