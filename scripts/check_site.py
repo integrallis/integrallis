@@ -18,6 +18,9 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_assets import expected as expected_min_css
+
 DOCS = Path(__file__).resolve().parent.parent / "docs"
 SITE_EPOCH = date(2026, 1, 1)          # nothing on this site predates 2026
 ALLOWED_HOSTS = {
@@ -145,6 +148,25 @@ def check_local_refs(page: Path, html: str) -> None:
             fail(page, f"broken local reference: {ref}")
 
 
+
+def check_minified_css() -> None:
+    """The committed styles.min.css must match what the source minifies to.
+
+    A stale minified file is worse than no minification: the site silently
+    serves yesterday's CSS while styles.css looks correct in review. Because
+    build_assets.minify is pure Python, this recomputes it offline rather than
+    trusting that someone remembered to run the build.
+    """
+    target = DOCS / "assets" / "css" / "styles.min.css"
+    if not target.exists():
+        problems.append("docs/assets/css/styles.min.css is missing - run scripts/build_assets.py")
+        return
+    if target.read_text(encoding="utf-8") != expected_min_css():
+        problems.append(
+            "docs/assets/css/styles.min.css is stale - run scripts/build_assets.py"
+        )
+
+
 def main() -> int:
     pages = sorted(DOCS.rglob("*.html"))
     if not pages:
@@ -159,6 +181,8 @@ def main() -> int:
         check_dates(page, html)
         check_hosts(page, html)
         check_local_refs(page, html)
+
+    check_minified_css()
 
     for required in ("robots.txt", "sitemap.xml", "404.html", "CNAME"):
         if not (DOCS / required).exists():
