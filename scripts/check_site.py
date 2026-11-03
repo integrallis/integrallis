@@ -19,7 +19,7 @@ from pathlib import Path
 from urllib.parse import urlparse, unquote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build_assets import expected as expected_min_css, inline_block_for_check
+from build_assets import expected as expected_min_css
 
 DOCS = Path(__file__).resolve().parent.parent / "docs"
 SITE_EPOCH = date(2026, 1, 1)          # nothing on this site predates 2026
@@ -165,17 +165,6 @@ def check_minified_css() -> None:
         problems.append(
             "docs/assets/css/styles.min.css is stale - run scripts/build_assets.py"
         )
-
-    # the CSS is inlined into every page; stale inline copies are the same bug
-    block = inline_block_for_check()
-    for page in sorted(DOCS.glob("*.html")):
-        html = page.read_text(encoding="utf-8")
-        if "<style data-inlined-css>" not in html:
-            problems.append(f"{page.relative_to(DOCS.parent)}: no inlined CSS - run scripts/build_assets.py")
-        elif block not in html:
-            problems.append(f"{page.relative_to(DOCS.parent)}: inlined CSS is stale - run scripts/build_assets.py")
-        if 'rel="stylesheet"' in html:
-            problems.append(f"{page.relative_to(DOCS.parent)}: still has a render-blocking stylesheet link")
 
 
 def main() -> int:

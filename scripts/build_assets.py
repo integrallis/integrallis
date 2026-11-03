@@ -17,6 +17,12 @@ selector micro-packing is not worth the risk.
 scripts/check_site.py re-runs minify() against the source and fails if the
 committed .min.css does not match, so the two cannot drift.
 
+Inlining this CSS into each page was tried and reverted. It did not clear
+RENDER_BLOCKING_RESOURCES, it introduced LOW_TEXT_HTML_RATIO on five pages,
+and 38 KB of CSS at the top of the document pushed every navigation link past
+byte 43520, after which the auditor reported the homepage as linking to zero
+pages. Keep the stylesheet external.
+
 JavaScript is NOT minified: scripts.js is 948 bytes gzipped, so the prize is
 roughly 200 bytes, and a hand-written JS minifier that mishandles automatic
 semicolon insertion or a regex literal would break the article grid for that.
@@ -63,59 +69,10 @@ def expected() -> str:
 
 
 
-INLINE_OPEN = "<style data-inlined-css>"
-INLINE_CLOSE = "</style>"
-
-
-def inline_into_pages() -> list[str]:
-    """Inline the minified CSS and drop the stylesheet <link>.
-
-    The stylesheet was the only render-blocking resource on all six pages:
-    font preloads and JSON-LD do not block, and scripts.js sits at the end of
-    body. At 7.2 KB gzipped it is small enough to carry inline, which removes
-    the request entirely.
-
-    The trade, stated plainly: HTML grows by roughly 7 KB gzipped per page and
-    the CSS is no longer cached across navigations, so a visitor who reads
-    several pages re-downloads it each time. For a six-page site where most
-    sessions touch one or two, first paint is the better side to optimise.
-
-    Generated, never hand-edited - check_site.py re-derives it and fails on
-    drift, the same as it does for styles.min.css.
-    """
-    css = minify((ROOT / "docs" / "assets" / "css" / "styles.css").read_text(encoding="utf-8"))
-    block = f"    {INLINE_OPEN}{css}{INLINE_CLOSE}\n"
-    touched = []
-    for page in sorted((ROOT / "docs").glob("*.html")):
-        html = original = page.read_text(encoding="utf-8")
-        # match the tag itself: three pages carry it concatenated with other
-        # <link> tags on one line, which a newline-anchored match misses
-        html = re.sub(r'<link rel="stylesheet" href="/?assets/css/styles(?:\.min)?\.css"\s*/?>', "", html)
-        start = html.find(INLINE_OPEN)
-        if start != -1:
-            line_start = html.rfind("\n", 0, start) + 1
-            end = html.find(INLINE_CLOSE, start) + len(INLINE_CLOSE)
-            if html[end:end + 1] == "\n":
-                end += 1
-            html = html[:line_start] + html[end:]
-        html = html.replace("</head>", block + "</head>", 1)
-        if html != original:
-            page.write_text(html, encoding="utf-8")
-            touched.append(page.name)
-    return touched
-
-
-def inline_block_for_check() -> str:
-    """The exact <style> payload check_site.py expects to find in each page."""
-    css = minify((ROOT / "docs" / "assets" / "css" / "styles.css").read_text(encoding="utf-8"))
-    return f"{INLINE_OPEN}{css}{INLINE_CLOSE}"
-
 def main() -> int:
     TARGET.write_text(expected(), encoding="utf-8")
     src, dst = len(SOURCE.read_bytes()), len(TARGET.read_bytes())
     print(f"{SOURCE.name} {src} B -> {TARGET.name} {dst} B ({100 - dst * 100 // src}% smaller raw)")
-    touched = inline_into_pages()
-    print(f"inlined into {len(touched)} page(s): {', '.join(touched) if touched else 'all current'}")
     return 0
 
 
